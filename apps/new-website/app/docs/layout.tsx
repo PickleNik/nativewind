@@ -11,9 +11,12 @@ const docsOptions: DocsLayoutProps = {
   // NOTE for /layouts/notebook option https://fumadocs.vercel.app/docs/ui/layouts/docs#notebook
   // nav: {
   //   ...baseOptions.nav,
+  //   transparentMode: 'top',
   //   mode: 'top',
   // },
+  // tabMode: 'navbar',
   sidebar: {
+    collapsible: false,
     // NOTE: for 2+ root:true metas https://fumadocs.vercel.app/docs/ui/layouts/docs#sidebar-tabs
     tabs: {
       transform(option, node) {
