@@ -60,6 +60,7 @@ export const baseOptions: BaseLayoutProps = {
     ),
   },
   links: [
+  // NOTE: docs link is separate to only show in home layout and not in docs layout, linkItems are passed to docs/layout.tsx
     {
       // NOTE: for /layouts/notebook option https://fumadocs.vercel.app/docs/ui/layouts/docs#nav-mode
       // on: 'nav',
