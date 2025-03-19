@@ -3,3 +3,32 @@
 @import 'fumadocs-ui/css/preset.css';
 
 @source '../../../node_modules/fumadocs-ui/dist/**/*.js';
+
+@keyframes react-rotate {
+  from {
+    transform: rotateX(66deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateX(66deg) rotateZ(360deg);
+  }
+}
+
+.animate-react-rotate {
+  animation: react-rotate 1.5s linear infinite;
+}
+
+.bg-grid-dots {
+  background-image: radial-gradient(
+    circle at 0 0,
+    #8888 1.5px,
+    transparent 0
+  ),
+  radial-gradient(
+    circle at 100% 100%,
+    #8888 1.5px,
+    transparent 0
+  );
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+
+}
