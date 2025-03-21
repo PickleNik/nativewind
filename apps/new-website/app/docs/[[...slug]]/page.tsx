@@ -5,8 +5,13 @@ import {
   DocsDescription,
   DocsTitle,
 } from 'fumadocs-ui/page';
+
 import { notFound } from 'next/navigation';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
+
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+import { Callout } from 'fumadocs-ui/components/callout';
+import { ComponentProps, FC } from 'react';
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -22,7 +27,10 @@ export default async function Page(props: {
       {/* <DocsTitle>{page.data.title}</DocsTitle> */}
       {/* <DocsDescription>{page.data.description}</DocsDescription> */}
       <DocsBody>
-        <MDX components={{ ...defaultMdxComponents as any }} />
+        <MDX components={{
+          ...defaultMdxComponents as any, Tab, Tabs, 
+          blockquote: Callout as unknown as FC<ComponentProps<'blockquote'>>,
+         }} />
       </DocsBody>
     </DocsPage>
   );
