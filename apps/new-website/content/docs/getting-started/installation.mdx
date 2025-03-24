@@ -10,7 +10,28 @@ title: Installation
 
 meow tabs
 
-<include>./\_install.mdx</include>
+<GlobalTabs
+  children={<include>./_install.mdx</include>}
+/>
+
+<GlobalTabs>
+  <include>./_install.mdx</include>
+</GlobalTabs>
+
+{/* TODO: sorta works, but client component is not needed here */}
+<GlobalTabs2>
+  <TabsList>
+    <TabsTrigger type="cli" />
+    <TabsTrigger type="manual" />
+  </TabsList>
+  <TabsContent type="cli">
+    {/* CLI content goes here */}
+    cli
+  </TabsContent>
+  <TabsContent type="manual">
+    <include>./_install.mdx</include>
+  </TabsContent>
+</GlobalTabs2>
 
 ## Additional Setup Guides
 
