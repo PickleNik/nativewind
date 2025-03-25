@@ -3,9 +3,6 @@
     "---Overview---",
     "index",
     "---Getting Started---",
-    "...getting-started",
-    "!_install",
-    "..."
-  ],
-  "root": true
+    "getting-started/installation/sdk50"
+  ]
 }

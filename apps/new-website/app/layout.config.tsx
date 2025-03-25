@@ -81,7 +81,7 @@ export const baseOptions: BaseLayoutProps = {
           },
           text: 'Overview',
           description: 'Overview',
-          url: '/docs/overview',
+          url: '/docs/',
         },
         {
           icon: <Book />,

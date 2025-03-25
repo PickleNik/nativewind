@@ -4,6 +4,15 @@
 
 @source '../../../node_modules/fumadocs-ui/dist/**/*.js';
 
+:root {
+  --color-fd-primary: #00b5df;
+  /* --fd-layout-width: 1400px; */
+}
+
+.dark {
+  --color-fd-primary: #3ad1ff;
+}
+
 @keyframes react-rotate {
   from {
     transform: rotateX(66deg) rotateZ(0deg);
