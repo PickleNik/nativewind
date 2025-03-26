@@ -1,8 +1,8 @@
-import { DocsLayout } from 'fumadocs-ui/layouts/notebook';
+import { DocsLayout } from '@/components/notebook';
 import type { ReactNode } from 'react';
 import { source } from '@/lib/source';
 import { Logo } from '../assets';
-import { RootToggle } from 'fumadocs-ui/components/layout/root-toggle';
+import { RootToggle } from '@/components/layout/root-toggle';
 import Link from 'next/link';
 import { BookOpen, BookText, Heart, LayoutTemplate, UserRound } from 'lucide-react';
 
@@ -18,31 +18,33 @@ export default function Layout({ children }: { children: ReactNode }) {
       githubUrl='https://github.com/nativewind/nativewind'
       // NOTE: for /layouts/notebook option https://fumadocs.vercel.app/docs/ui/layouts/docs#notebook
       nav={{
-        transparentMode: 'top',
+        // transparentMode: 'top',
         title: (
           <>
             {/* TODO: pass currentColor based on theme */}
             <Logo />
             NativeWind
-            <RootToggle
-              // onClick={(e) => {
-              //   e.preventDefault();
-              //   e.stopPropagation();
-              // }}
-              className="rounded-full border pr-2 cursor-pointer"
-              options={[
-            
-                {
-                  title: 'v4',
-                  url: '/docs',
-                },
-                {
-                  title: 'v2',
-                  url: 'https://www.nativewind.dev/v2/',
-                },
-              ]}
-            />
           </>
+        ),
+        afterTitle: (
+          <RootToggle
+            // onClick={(e) => {
+            //   e.preventDefault();
+            //   e.stopPropagation();
+            // }}
+            className="rounded-full border pr-2 cursor-pointer ml-4 pl-3"
+            options={[
+          
+              {
+                title: 'v4',
+                url: '/docs',
+              },
+              {
+                title: 'v2',
+                url: 'https://www.nativewind.dev/v2/',
+              },
+            ]}
+          />
         ),
         mode: 'top',
       }}

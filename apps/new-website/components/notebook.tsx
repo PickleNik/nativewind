@@ -48,7 +48,7 @@ import {
 import {
   type PageStyles,
   StylesProvider,
-  NavProvider,
+  // NavProvider,
 } from 'fumadocs-ui/provider';
 import { type Option, RootToggle } from './layout/root-toggle';
 
@@ -67,7 +67,7 @@ export interface DocsLayoutProps extends BaseLayoutProps {
 
 export function DocsLayout({
   tabMode = 'sidebar',
-  nav: { transparentMode, ...nav } = {},
+  nav: { ...nav } = {},
   sidebar: {
     collapsible: sidebarCollapsible = true,
     tabs: tabOptions,
@@ -101,7 +101,7 @@ export function DocsLayout({
 
   return (
     <TreeContextProvider tree={props.tree}>
-      <NavProvider transparentMode={transparentMode}>
+      {/* <NavProvider transparentMode='top'> */}
         <main
           id="nd-docs-layout"
           {...props.containerProps}
@@ -206,7 +206,7 @@ export function DocsLayout({
           />
           <StylesProvider {...pageStyles}>{props.children}</StylesProvider>
         </main>
-      </NavProvider>
+      {/* </NavProvider> */}
     </TreeContextProvider>
   );
 }
@@ -270,6 +270,7 @@ function DocsNavbar({
           >
             {nav.title}
           </Link>
+          {nav.afterTitle}
         </div>
 
         <LargeSearchToggle
@@ -303,7 +304,7 @@ function DocsNavbar({
                 item={item}
                 className={cn(
                   buttonVariants({ size: 'icon-sm', color: 'ghost' }),
-                  'text-fd-muted-foreground max-lg:hidden',
+                  'text-fd-muted-foreground max-lg:hidden rounded-full border',
                 )}
                 aria-label={item.label}
               >

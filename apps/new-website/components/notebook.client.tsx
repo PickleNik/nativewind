@@ -2,7 +2,7 @@
 import { cn } from '../lib/cn';
 import { type ButtonHTMLAttributes, type HTMLAttributes } from 'react';
 import { useSidebar } from 'fumadocs-ui/provider';
-import { useNav } from 'fumadocs-ui/provider';
+// import { useNav } from 'fumadocs-ui/provider';
 import { SidebarTrigger } from 'fumadocs-core/sidebar';
 import { buttonVariants } from './ui/button';
 import { Menu, X } from 'lucide-react';
@@ -13,7 +13,8 @@ import type { Option } from './layout/root-toggle';
 
 export function Navbar(props: HTMLAttributes<HTMLElement>) {
   const { open, collapsed } = useSidebar();
-  const { isTransparent } = useNav();
+  // const { isTransparent } = useNav();
+  const isTransparent = true;
 
   return (
     <header

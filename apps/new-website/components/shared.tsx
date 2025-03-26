@@ -9,7 +9,8 @@ export interface NavOptions extends NavProviderProps {
   component: ReactNode;
 
   title?: ReactNode;
-
+  afterTitle?: ReactNode;
+  
   /**
    * Redirect url of title
    * @defaultValue '/'

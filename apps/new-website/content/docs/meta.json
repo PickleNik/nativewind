@@ -9,7 +9,7 @@
     "index",
     "guides/goals",
     "---Getting Started---",
-    "getting-started/installation/sdk50",
+    "getting-started/installation/index",
     "getting-started/typescript",
     "getting-started/other-bundlers",
     "getting-started/using-with-monorepos",

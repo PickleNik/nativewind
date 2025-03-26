@@ -247,7 +247,7 @@ export function SidebarItem({
 }) {
   const pathname = usePathname();
   const active =
-    props.href !== undefined && isActive(props.href, pathname, false);
+    props.href !== undefined && isActive(props.href, pathname, props?.href?.includes('installation'));
   const { prefetch, level } = useInternalContext();
 
   return (
