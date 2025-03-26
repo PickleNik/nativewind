@@ -14,6 +14,7 @@
     "getting-started/other-bundlers",
     "getting-started/using-with-monorepos",
     "---Guides---",
-    "guides/troubleshooting"
+    "guides/troubleshooting",
+    "guides/custom-components"
   ]
 }
