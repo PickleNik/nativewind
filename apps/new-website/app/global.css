@@ -5,7 +5,7 @@
 @source '../../../node_modules/fumadocs-ui/dist/**/*.js';
 
 :root {
-  --color-fd-primary: #00b5df;
+  --color-fd-primary: #0092b3;
   /* --fd-layout-width: 1400px; */
 }
 
