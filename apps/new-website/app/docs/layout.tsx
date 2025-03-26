@@ -10,9 +10,9 @@ import { BookOpen, BookText, Heart, LayoutTemplate, UserRound } from 'lucide-rea
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <DocsLayout
-      // themeSwitch={{
-      //   mode: 'light-dark',
-      // }}
+      themeSwitch={{
+        mode: 'light-dark',
+      }}
       tree={source.pageTree}
       // links: [],
       githubUrl='https://github.com/nativewind/nativewind'

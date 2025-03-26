@@ -6,6 +6,9 @@ import { RootToggle } from 'fumadocs-ui/components/layout/root-toggle';
 
 export default function Layout({ children }: { children: ReactNode }) {
   return <HomeLayout
+    themeSwitch={{
+      mode: 'light-dark-system',
+    }}
     githubUrl='https://github.com/nativewind/nativewind'
     nav={{
       transparentMode: 'top',

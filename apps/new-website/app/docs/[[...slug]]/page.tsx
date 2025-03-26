@@ -6,7 +6,7 @@ import {
   DocsDescription,
 } from 'fumadocs-ui/page';
 
-// import { createRelativeLink } from 'fumadocs-ui/mdx';
+import { createRelativeLink } from 'fumadocs-ui/mdx';
 
 import { notFound } from 'next/navigation';
 import type { MDXComponents } from 'mdx/types';
@@ -18,7 +18,7 @@ import Install from '@/app/components/_install.mdx';
 import { GlobalTabs } from '@/app/components/Tabs'; 
 import { GlobalTabs2, TabsList, TabsContent, TabsTrigger } from '@/app/components/Tabs2';
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
-import { Callout } from 'fumadocs-ui/components/callout';
+import { Callout } from '@/components/callout';
 import { ComponentProps, FC } from 'react';
 
 export default async function Page(props: {
@@ -44,7 +44,8 @@ export default async function Page(props: {
           ...defaultMdxComponents as any, Tab, Tabs, GlobalTabs, GlobalTabs2, TabsList, TabsContent, TabsTrigger,
           ...((await import('lucide-react')) as unknown as MDXComponents),
           blockquote: Callout as unknown as FC<ComponentProps<'blockquote'>>,
-          // a: createRelativeLink(source, page),
+          a: createRelativeLink(source, page),
+          Callout,
           Link,
           // Pre, CodeBlock,
           Install,
