@@ -7,7 +7,13 @@
     "[Heart][Sponsors](/sponsors)",
     "---Overview---",
     "index",
+    "guides/goals",
     "---Getting Started---",
-    "getting-started/installation/sdk50"
+    "getting-started/installation/sdk50",
+    "getting-started/typescript",
+    "getting-started/other-bundlers",
+    "getting-started/using-with-monorepos",
+    "---Guides---",
+    "guides/troubleshooting"
   ]
 }
