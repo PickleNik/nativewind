@@ -11,6 +11,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       transparentMode: 'top',
       title: (
         <>
+          {/* TODO: pass currentColor based on theme */}
           <Logo />
           NativeWind
           <RootToggle
