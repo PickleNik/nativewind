@@ -51,7 +51,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       // TODO: remove, probably won't be used
       // tabMode: 'navbar',
       sidebar={{
-        collapsible: false,
+        collapsible: true,
         // NOTE: for 2+ root:true metas https://fumadocs.vercel.app/docs/ui/layouts/docs#sidebar-tabs
         // TODO: remove, probably won't be used
         tabs: {

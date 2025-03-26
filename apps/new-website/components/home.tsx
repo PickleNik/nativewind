@@ -2,7 +2,7 @@ import { Fragment, type HTMLAttributes } from 'react';
 import { type NavOptions, replaceOrDefault } from './shared';
 import { cn } from '../lib/cn';
 import { getLinks, type BaseLayoutProps } from './shared';
-import { NavProvider } from 'fumadocs-ui/provider';
+// import { NavProvider } from 'fumadocs-ui/provider';
 import {
   Navbar,
   NavbarLink,
@@ -50,14 +50,14 @@ export function HomeLayout(props: HomeLayoutProps) {
     githubUrl,
     i18n: _i18n,
     themeSwitch: _themeSwitch,
-    disableThemeSwitch: _disableThemeSwitch,
+    // disableThemeSwitch: _disableThemeSwitch,
     ...rest
   } = props;
 
   const finalLinks = getLinks(links, githubUrl);
 
   return (
-    <NavProvider transparentMode={nav?.transparentMode}>
+    // <NavProvider transparentMode={nav?.transparentMode}>
       <main
         id="nd-home-layout"
         {...rest}
@@ -68,7 +68,7 @@ export function HomeLayout(props: HomeLayoutProps) {
         })}
         {props.children}
       </main>
-    </NavProvider>
+    // </NavProvider>
   );
 }
 
@@ -113,10 +113,6 @@ function Header({
             />
           </>
         ) : null}
-        {replaceOrDefault(
-          themeSwitch,
-          <ThemeToggle className="max-lg:hidden" mode={themeSwitch?.mode} />,
-        )}
         {i18n ? (
           <LanguageToggle className="max-lg:hidden">
             <Languages className="size-5" />
@@ -124,11 +120,15 @@ function Header({
         ) : null}
       </div>
       <ul className="flex flex-row items-center">
+        {replaceOrDefault(
+          themeSwitch,
+          <ThemeToggle className="max-lg:hidden mx-2" mode={themeSwitch?.mode} />,
+        )}
         {navItems.filter(isSecondary).map((item, i) => (
           <NavbarLinkItem
             key={i}
             item={item}
-            className="-me-1.5 max-lg:hidden"
+            className="border rounded-full -mr-2 max-lg:hidden"
           />
         ))}
         <Menu className="lg:hidden">

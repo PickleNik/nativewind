@@ -27,7 +27,7 @@ const navItemVariants = cva(
 export function Navbar(props: HTMLAttributes<HTMLElement>) {
   const [value, setValue] = useState('');
   // const { isTransparent } = useNav();
-  const isTransparent = false;
+  const isTransparent = true;
 
   return (
     <NavigationMenu value={value} onValueChange={setValue} asChild>
@@ -35,8 +35,8 @@ export function Navbar(props: HTMLAttributes<HTMLElement>) {
         id="nd-nav"
         {...props}
         className={cn(
-          'fixed left-1/2 top-(--fd-banner-height) z-40 box-content w-full max-w-fd-container -translate-x-1/2 border-b border-fd-foreground/10 transition-colors lg:mt-2 lg:w-[calc(100%-1rem)] lg:rounded-2xl lg:border',
-          value.length > 0 ? 'shadow-lg' : 'shadow-sm',
+          'fixed left-1/2 top-(--fd-banner-height) bg-white/80 dark:bg-fd-background/80 backdrop-blur-lg z-40 box-content w-full max-w-fd-container -translate-x-1/2 border-b border-fd-foreground/10 transition-colors lg:mt-2 lg:w-[calc(100%-1rem)] lg:rounded-2xl lg:border',
+          value.length > 0 ? '' : '',
           (!isTransparent || value.length > 0) &&
             'bg-fd-background/80 backdrop-blur-lg',
           props.className,

@@ -261,6 +261,19 @@ function DocsNavbar({
               <SidebarIcon />
             </SidebarCollapseTrigger>
           ) : null}
+          {sidebarCollapsible && navMode === 'top' ? (
+            <SidebarCollapseTrigger
+              className={cn(
+                buttonVariants({
+                  color: 'outline',
+                  size: 'icon-sm',
+                }),
+                'mr-4 text-fd-muted-foreground rounded-full max-md:hidden',
+              )}
+            >
+              <SidebarIcon />
+            </SidebarCollapseTrigger>
+          ) : null}
           <Link
             href={nav.url ?? '/'}
             className={cn(
@@ -295,6 +308,10 @@ function DocsNavbar({
           </div>
           {nav.children}
           <SearchToggle hideIfDisabled className="md:hidden" />
+          <ThemeToggle
+            className="mr-2 max-md:hidden"
+            mode="light-dark-system"
+          />
           <NavbarSidebarTrigger className="md:hidden" />
           {links
             .filter((item) => item.type === 'icon')
@@ -315,23 +332,6 @@ function DocsNavbar({
             <LanguageToggle className="max-md:hidden">
               <Languages className="size-4.5 text-fd-muted-foreground" />
             </LanguageToggle>
-          ) : null}
-          <ThemeToggle
-            className="ms-2 max-md:hidden"
-            mode="light-dark-system"
-          />
-          {sidebarCollapsible && navMode === 'top' ? (
-            <SidebarCollapseTrigger
-              className={cn(
-                buttonVariants({
-                  color: 'secondary',
-                  size: 'icon-sm',
-                }),
-                'ms-2 text-fd-muted-foreground rounded-full max-md:hidden',
-              )}
-            >
-              <SidebarIcon />
-            </SidebarCollapseTrigger>
           ) : null}
         </div>
       </div>

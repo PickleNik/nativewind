@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { HomeLayout } from 'fumadocs-ui/layouts/home';
+import { HomeLayout } from '@/components/home';
 import { Logo } from '../assets';
 import { BookText, Book, Cpu, Heart, Layout as LayoutIcon, LayoutTemplate, Server, UsersRound } from 'lucide-react';
 import { RootToggle } from 'fumadocs-ui/components/layout/root-toggle';
@@ -11,7 +11,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     }}
     githubUrl='https://github.com/nativewind/nativewind'
     nav={{
-      transparentMode: 'top',
+      // transparentMode: 'top',
       title: (
         <>
           {/* TODO: pass currentColor based on theme */}
