@@ -5,20 +5,28 @@
     "[UsersRound][Community](/community)",
     "[LayoutTemplate][Showcase](/showcase)",
     "[Heart][Sponsors](/sponsors)",
+
     "---Overview---",
     "index",
     "guides/goals",
+
     "---Getting Started---",
     "getting-started/installation/index",
     "getting-started/typescript",
     "getting-started/other-bundlers",
     "getting-started/using-with-monorepos",
+
     "---Guides---",
     "guides/troubleshooting",
     "guides/custom-components",
     "guides/third-party-components",
     "guides/themes",
     "guides/editor-setup",
-    "guides/component-libraries"
+    "guides/component-libraries",
+
+    "---Core concepts---",
+    "core-concepts/tailwindcss",
+    "core-concepts/quirks",
+    "core-concepts/states"
   ]
 }
