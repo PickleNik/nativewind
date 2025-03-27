@@ -28,10 +28,6 @@ export default function Layout({ children }: { children: ReactNode }) {
         ),
         afterTitle: (
           <RootToggle
-            // onClick={(e) => {
-            //   e.preventDefault();
-            //   e.stopPropagation();
-            // }}
             className="rounded-full border pr-2 cursor-pointer ml-4 pl-3"
             options={[
           

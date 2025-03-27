@@ -15,6 +15,10 @@
     "getting-started/using-with-monorepos",
     "---Guides---",
     "guides/troubleshooting",
-    "guides/custom-components"
+    "guides/custom-components",
+    "guides/third-party-components",
+    "guides/themes",
+    "guides/editor-setup",
+    "guides/component-libraries"
   ]
 }
