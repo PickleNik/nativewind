@@ -42,6 +42,14 @@
     "customization/configuration",
     "customization/content",
     "customization/theme",
-    "customization/colors"
+    "customization/colors",
+
+    "---API---",
+    "api/with-nativewind",
+    "api/vars",
+    "api/use-color-scheme",
+    "api/remap-props",
+    "api/css-interop"
+
   ]
 }
