@@ -58,7 +58,40 @@
     "...tailwind/flexbox",
 
     "---Spacing---",
-    "...tailwind/spacing"
+    "...tailwind/spacing",
+
+    "---Sizing---",
+    "...tailwind/sizing",
+
+    "---Typography---",
+    "...tailwind/typography",
+
+    "---Backgrounds---",
+    "...tailwind/backgrounds",
+
+    "---Borders---",
+    "...tailwind/borders",
+
+    "---Effects---",
+    "...tailwind/effects",
+
+    "---Transitions & Animation---",
+    "...tailwind/transitions-animation",
+
+    "---Transforms---",
+    "...tailwind/transforms",
+
+    "---Interactivity---",
+    "...tailwind/interactivity",
+
+    "---SVG---",
+    "...tailwind/svg",
+
+    "---Accessibility---",
+    "...tailwind/accessibility",
+
+    "---Plugins---",
+    "...tailwind/plugins"
 
   ]
 }
