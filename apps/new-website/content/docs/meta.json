@@ -55,7 +55,10 @@
     "...tailwind/layout",
 
     "---Flexbox & Grid---",
-    "...tailwind/flexbox"
+    "...tailwind/flexbox",
+
+    "---Spacing---",
+    "...tailwind/spacing"
 
   ]
 }
