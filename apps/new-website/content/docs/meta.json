@@ -52,7 +52,10 @@
     "api/css-interop",
 
     "---Layout---",
-    "...tailwind/layout"
+    "...tailwind/layout",
+
+    "---Flexbox & Grid---",
+    "...tailwind/flexbox"
 
   ]
 }
