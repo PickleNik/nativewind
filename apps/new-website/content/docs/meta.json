@@ -1,5 +1,11 @@
 {
   "pages": [
+    "[BookOpen][Docs](/docs/)",
+    "[BookText][Blog](/blog)",
+    "[UsersRound][Community](/community)",
+    "[LayoutTemplate][Showcase](/showcase)",
+    "[Heart][Sponsors](/sponsors)",
+
     "---Overview---",
     "index",
     "guides/goals",
@@ -21,6 +27,15 @@
     "---Core concepts---",
     "core-concepts/tailwindcss",
     "core-concepts/quirks",
-    "core-concepts/states"
+    "core-concepts/states",
+    "core-concepts/responsive-design",
+    "core-concepts/dark-mode",
+    "core-concepts/functions-and-directives",
+
+    "---React Native concepts---",
+    "core-concepts/units",
+    "core-concepts/differences",
+    "core-concepts/style-specificity",
+    "tailwind/new-concepts/safe-area-insets"
   ]
 }

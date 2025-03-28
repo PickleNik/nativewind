@@ -76,43 +76,44 @@ export default function Layout({ children }: { children: ReactNode }) {
             };
           },
         },
-        banner: (
-          <div className="flex flex-col pt-2">
-            <Link href="/docs" className="relative flex flex-row items-center gap-2 rounded-md p-2 text-start [overflow-wrap:anywhere] md:py-1.5 [&_svg]:size-4 [&_svg]:shrink-0 bg-fd-primary/10 text-fd-primary" style={{ paddingInlineStart: 'calc(var(--spacing) * 2)' }} >
-              <BookOpen />
-              Docs
-            </Link>
-            <Link href="/blog" className="relative flex flex-row items-center gap-2 rounded-md p-2 text-start text-fd-muted-foreground [overflow-wrap:anywhere] md:py-1.5 [&_svg]:size-4 [&_svg]:shrink-0 transition-colors hover:bg-fd-accent/50 hover:text-fd-accent-foreground/80 hover:transition-none" style={{ paddingInlineStart: 'calc(var(--spacing) * 2)' }} >
-              <BookText />
-              Blog
-            </Link>
-            <Link href="/community" className="relative flex flex-row items-center gap-2 rounded-md p-2 text-start text-fd-muted-foreground [overflow-wrap:anywhere] md:py-1.5 [&_svg]:size-4 [&_svg]:shrink-0 transition-colors hover:bg-fd-accent/50 hover:text-fd-accent-foreground/80 hover:transition-none" style={{ paddingInlineStart: 'calc(var(--spacing) * 2)' }} >
-              <UserRound />
-              Community
-            </Link>
-            <Link href="/showcase" className="relative flex flex-row items-center gap-2 rounded-md p-2 text-start text-fd-muted-foreground [overflow-wrap:anywhere] md:py-1.5 [&_svg]:size-4 [&_svg]:shrink-0 transition-colors hover:bg-fd-accent/50 hover:text-fd-accent-foreground/80 hover:transition-none" style={{ paddingInlineStart: 'calc(var(--spacing) * 2)' }} >
-              <LayoutTemplate />
-              Showcase
-            </Link>
-            <Link href="/sporsor" className="relative flex flex-row items-center gap-2 rounded-md p-2 text-start text-fd-muted-foreground [overflow-wrap:anywhere] md:py-1.5 [&_svg]:size-4 [&_svg]:shrink-0 transition-colors hover:bg-fd-accent/50 hover:text-fd-accent-foreground/80 hover:transition-none" style={{ paddingInlineStart: 'calc(var(--spacing) * 2)' }} >
-              <Heart />
-              Sponsor
-            </Link>
-            {/* <RootToggle
-              options={[
+        // NOTE: stays pinned when scrolling the sidebar
+        // banner: (
+        //   <div className="flex flex-col pt-2">
+        //     <Link href="/docs" className="relative flex flex-row items-center gap-2 rounded-md p-2 text-start [overflow-wrap:anywhere] md:py-1.5 [&_svg]:size-4 [&_svg]:shrink-0 bg-fd-primary/10 text-fd-primary" style={{ paddingInlineStart: 'calc(var(--spacing) * 2)' }} >
+        //       <BookOpen />
+        //       Docs
+        //     </Link>
+        //     <Link href="/blog" className="relative flex flex-row items-center gap-2 rounded-md p-2 text-start text-fd-muted-foreground [overflow-wrap:anywhere] md:py-1.5 [&_svg]:size-4 [&_svg]:shrink-0 transition-colors hover:bg-fd-accent/50 hover:text-fd-accent-foreground/80 hover:transition-none" style={{ paddingInlineStart: 'calc(var(--spacing) * 2)' }} >
+        //       <BookText />
+        //       Blog
+        //     </Link>
+        //     <Link href="/community" className="relative flex flex-row items-center gap-2 rounded-md p-2 text-start text-fd-muted-foreground [overflow-wrap:anywhere] md:py-1.5 [&_svg]:size-4 [&_svg]:shrink-0 transition-colors hover:bg-fd-accent/50 hover:text-fd-accent-foreground/80 hover:transition-none" style={{ paddingInlineStart: 'calc(var(--spacing) * 2)' }} >
+        //       <UserRound />
+        //       Community
+        //     </Link>
+        //     <Link href="/showcase" className="relative flex flex-row items-center gap-2 rounded-md p-2 text-start text-fd-muted-foreground [overflow-wrap:anywhere] md:py-1.5 [&_svg]:size-4 [&_svg]:shrink-0 transition-colors hover:bg-fd-accent/50 hover:text-fd-accent-foreground/80 hover:transition-none" style={{ paddingInlineStart: 'calc(var(--spacing) * 2)' }} >
+        //       <LayoutTemplate />
+        //       Showcase
+        //     </Link>
+        //     <Link href="/sporsor" className="relative flex flex-row items-center gap-2 rounded-md p-2 text-start text-fd-muted-foreground [overflow-wrap:anywhere] md:py-1.5 [&_svg]:size-4 [&_svg]:shrink-0 transition-colors hover:bg-fd-accent/50 hover:text-fd-accent-foreground/80 hover:transition-none" style={{ paddingInlineStart: 'calc(var(--spacing) * 2)' }} >
+        //       <Heart />
+        //       Sponsor
+        //     </Link>
+        //     {/* <RootToggle
+        //       options={[
             
-                {
-                  title: 'v4',
-                  url: '/docs',
-                },
-                {
-                  title: 'v2',
-                  url: 'https://www.nativewind.dev/v2/',
-                },
-              ]}
-            /> */}
-          </div>
-        ),
+        //         {
+        //           title: 'v4',
+        //           url: '/docs',
+        //         },
+        //         {
+        //           title: 'v2',
+        //           url: 'https://www.nativewind.dev/v2/',
+        //         },
+        //       ]}
+        //     /> */}
+        //   </div>
+        // ),
       }}
     >
       {children}
