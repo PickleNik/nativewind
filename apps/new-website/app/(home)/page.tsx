@@ -39,13 +39,13 @@ export default function HomePage() {
         <div className="p-4 gap-2 flex w-64 text-left bg-white/80 dark:bg-fd-card/80 rounded-2xl border">
           <Globe className="size-4 text-fd-muted-foreground" />
           <span className="text-fd-muted-foreground ml-2 text-sm flex-1/2">
-            <b>Universal</b> Uses the best style system for each platform
+            <b className="text-fd-foreground">Universal</b> Uses the best style system for each platform
           </span>
         </div>
         <div className="p-4 gap-2 flex w-64 text-left bg-white/80 dark:bg-fd-card/80 rounded-2xl border">
           <Laptop className="size-4 text-fd-muted-foreground" />
           <span className="text-fd-muted-foreground ml-2 text-sm flex-1/2">
-            <b>DevUX</b> Plugins for simple setup and improving intellisense support
+            <b className="text-fd-foreground">DevUX</b> Plugins for simple setup and improving intellisense support
           </span>
         </div>
         <div className="p-4 gap-2 flex w-64 text-left bg-white/80 dark:bg-fd-card/80 rounded-2xl border">
@@ -57,7 +57,7 @@ export default function HomePage() {
         <div className="p-4 gap-2 flex w-64 text-left bg-white/80 dark:bg-fd-card/80 rounded-2xl border">
           <Sparkles className="size-4 text-fd-muted-foreground" />
           <span className="text-fd-muted-foreground ml-2 text-sm flex-1/2">
-            <b>Media & Container queries</b> Use modern styling features like queries (docs)
+            <b className="text-fd-foreground">Media & Container queries</b> Use modern styling features like queries (docs)
           </span>
         </div>
         <div className="p-4 gap-2 flex w-64 text-left bg-white/80 dark:bg-fd-card/80 rounded-2xl border">

@@ -1,3 +1,7 @@
+---
+title: _legend.md
+---
+
 <details style={{ width: 500 }}>
   <summary>Legend</summary>
 

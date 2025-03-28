@@ -6,20 +6,16 @@ import {
   DocsDescription,
 } from 'fumadocs-ui/page';
 
-import { createRelativeLink } from 'fumadocs-ui/mdx';
 
 import { notFound } from 'next/navigation';
-import type { MDXComponents } from 'mdx/types';
+import { ComponentProps, FC } from 'react';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 
-// import { Pre, CodeBlock } from 'fumadocs-ui/components/codeblock';
-import Link from 'next/link';
-import Install from '@/app/components/_install.mdx';
-import { GlobalTabs } from '@/app/components/Tabs'; 
-import { GlobalTabs2, TabsList, TabsContent, TabsTrigger } from '@/app/components/Tabs2';
-import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import { Callout } from '@/components/callout';
-import { ComponentProps, FC } from 'react';
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+import { createRelativeLink } from 'fumadocs-ui/mdx';
+// import type { MDXComponents } from 'mdx/types';
+// import Link from 'next/link';
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -41,14 +37,13 @@ export default async function Page(props: {
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
         <MDX components={{
-          ...defaultMdxComponents as any, Tab, Tabs, GlobalTabs, GlobalTabs2, TabsList, TabsContent, TabsTrigger,
-          ...((await import('lucide-react')) as unknown as MDXComponents),
-          blockquote: Callout as unknown as FC<ComponentProps<'blockquote'>>,
+          ...defaultMdxComponents as any,
           a: createRelativeLink(source, page),
+          blockquote: Callout as unknown as FC<ComponentProps<'blockquote'>>,
+          Tab, Tabs,
           Callout,
-          Link,
-          // Pre, CodeBlock,
-          Install,
+          // ...((await import('lucide-react')) as unknown as MDXComponents),
+          // Link,
          }} />
       </DocsBody>
     </DocsPage>
