@@ -49,7 +49,10 @@
     "api/vars",
     "api/use-color-scheme",
     "api/remap-props",
-    "api/css-interop"
+    "api/css-interop",
+
+    "---Layout---",
+    "...tailwind/layout"
 
   ]
 }
