@@ -19,7 +19,9 @@ On native, shadows may not appear if a background color is not set
 
 ## Example
 
-```SnackPlayer name=Hello%20World
+{/* TODO: ```SnackPlayer name=Hello%20World */}
+
+```tsx
 import { Text, View } from 'react-native';
 import { styled } from 'nativewind';
 
@@ -40,13 +42,13 @@ const App = () => {
 ## Compatibility
 
 <Compatibility
-supported={[
-"shadow",
-"shadow-{n}",
-"shadow-none",
-]}
-none={[
-"shadow-[n]",
-"shadow-inner",
-]}
+  supported={[
+    "shadow",
+    "shadow-{n}",
+    "shadow-none",
+  ]}
+  none={[
+    "shadow-[n]",
+    "shadow-inner",
+  ]}
 />
