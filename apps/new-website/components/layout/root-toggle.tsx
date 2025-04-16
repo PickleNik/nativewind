@@ -58,16 +58,19 @@ export function RootToggle({
   return (
     <Popover open={open} onOpenChange={setOpen}>
       {item ? (
-        <PopoverTrigger
-          {...props}
-          className={cn(
-            'flex flex-row items-center gap-2.5 rounded-lg ps-2 pe-4 py-1.5 hover:text-fd-accent-foreground',
-            props.className,
-          )}
-        >
-          {item}
-          <ChevronsUpDown className="size-4 text-fd-muted-foreground" />
-        </PopoverTrigger>
+        <>
+          <PopoverTrigger
+            {...props}
+            className={cn(
+              'flex flex-row items-center cursor-pointer gap-2.5 ps-2 pe-4 py-1.5 hover:text-fd-accent-foreground',
+              props.className,
+            )}
+          >
+            <svg className="opacity-20 -mr-2" height="24" viewBox="0 0 32 32" width="24"><path d="M22 5L9 28" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"></path></svg>
+            {item}
+            <ChevronsUpDown className="size-4 text-fd-muted-foreground" />
+          </PopoverTrigger>
+        </>
       ) : null}
       <PopoverContent className="w-fit overflow-hidden p-0">
         {options.map((item) => (

@@ -11,7 +11,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     }}
     githubUrl='https://github.com/nativewind/nativewind'
     nav={{
-      transparentMode: 'top',
+      transparentMode: 'always',
       title: (
         <>
           <Logo />
@@ -22,7 +22,6 @@ export default function Layout({ children }: { children: ReactNode }) {
     afterTitle={(
       <RootToggle
         key="root-toggle"
-        className="rounded-full border pr-2 cursor-pointer ml-4 pl-3"
         options={[
           {
             title: 'v4',

@@ -3,9 +3,9 @@ import Link from 'next/link';
 
 export default function HomePage() {
   return (
-    <main className="flex flex-1 flex-col justify-center text-center">
+    <main className="flex flex-1 flex-col justify-center text-center border-x border-dashed">
 
-      <div className="fixed max-md:hidden container border top-20 -z-10 left-1/2 -translate-x-1/2 h-screen rounded-t-2xl" />
+      <div className="fixed max-w-fd-container lg:w-[calc(100%-1rem)] box-content lg:border-x border-dashed top-0 -z-10 left-1/2 -translate-x-1/2 h-screen" />
       
       {/* <div className="absolute top-1/4 right-1/4 bg-gradient-to-r from-cyan-500/20 to-cyan-400 bg-clip-text text-transparent text-4xl perspective-dramatic scale-3d -rotate-z-30 rotate-x-60 scale-60">nw-text-cyan-500/80</div>
       <div className="absolute top-1/4 left-1/4 bg-gradient-to-r from-pink-400 to-pink-500/20 bg-clip-text text-transparent text-4xl perspective-dramatic scale-3d rotate-z-30 -rotate-x-60 scale-60">nw-text-pink-500/80</div> */}
@@ -24,49 +24,18 @@ export default function HomePage() {
       </div>
       <div className="-z-10 h-24 w-[33rem] bg-cyan-500/50 rounded-[100%] max-w-screen absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blur-3xl "></div>
       <h1 className="mb-4 text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold opacity-50 bg-gradient-to-br from-black to-cyan-800 bg-clip-text text-transparent dark:from-white">NativeWind</h1>
-      <p className="text-fd-muted-foreground">
-        You can open{' '}
+      <p className="text-fd-muted-foreground text-pretty max-w-[40ch] mx-auto">
+        {/* You can open{' '}
         <Link
           href="/docs"
           className="text-fd-foreground font-semibold underline"
         >
           /docs
         </Link>{' '}
-        and see the documentation.
+        and see the documentation.<br/> */}
+        Do you like using Tailwind CSS to style your apps? This helps you do that in React Native.
       </p>
-      {/* Feature Cards */}
-      <div className=" mx-auto max-xl:w-full flex flex-wrap justify-center absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-32 gap-8">
-        <div className="p-4 gap-2 flex w-64 text-left bg-white/80 dark:bg-fd-card/80 rounded-2xl border">
-          <Globe className="size-4 text-fd-muted-foreground" />
-          <span className="text-fd-muted-foreground ml-2 text-sm flex-1/2">
-            <b className="text-fd-foreground">Universal</b> Uses the best style system for each platform
-          </span>
-        </div>
-        <div className="p-4 gap-2 flex w-64 text-left bg-white/80 dark:bg-fd-card/80 rounded-2xl border">
-          <Laptop className="size-4 text-fd-muted-foreground" />
-          <span className="text-fd-muted-foreground ml-2 text-sm flex-1/2">
-            <b className="text-fd-foreground">DevUX</b> Plugins for simple setup and improving intellisense support
-          </span>
-        </div>
-        <div className="p-4 gap-2 flex w-64 text-left bg-white/80 dark:bg-fd-card/80 rounded-2xl border">
-          <Globe className="size-4 text-fd-muted-foreground" />
-          <span className="text-fd-muted-foreground ml-2 text-sm flex-1/2">
-            Universal Uses the best style system for each platform
-          </span>
-        </div>
-        <div className="p-4 gap-2 flex w-64 text-left bg-white/80 dark:bg-fd-card/80 rounded-2xl border">
-          <Sparkles className="size-4 text-fd-muted-foreground" />
-          <span className="text-fd-muted-foreground ml-2 text-sm flex-1/2">
-            <b className="text-fd-foreground">Media & Container queries</b> Use modern styling features like queries (docs)
-          </span>
-        </div>
-        <div className="p-4 gap-2 flex w-64 text-left bg-white/80 dark:bg-fd-card/80 rounded-2xl border">
-          <Globe className="size-4 text-fd-muted-foreground" />
-          <span className="text-fd-muted-foreground ml-2 text-sm flex-1/2">
-            Universal Uses the best style system for each platform
-          </span>
-        </div>
-      </div>
+
     </main>
   );
 }
