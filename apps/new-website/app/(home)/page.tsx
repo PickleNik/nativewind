@@ -1,9 +1,12 @@
-import { Globe, Laptop, Sparkles } from 'lucide-react';
+"use client"
 import Link from 'next/link';
+import { useEffect, useRef } from 'react';
+import VectorField from './VectorField';
 
 export default function HomePage() {
   return (
     <main className="flex flex-1 flex-col justify-center text-center border-x border-dashed">
+      <VectorField />
 
       <div className="fixed max-w-fd-container lg:w-[calc(100%-1rem)] box-content lg:border-x border-dashed top-0 -z-10 left-1/2 -translate-x-1/2 h-screen" />
       
