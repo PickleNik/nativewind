@@ -13,7 +13,7 @@ import {
   NavigationMenuTrigger,
   NavigationMenuViewport,
 } from '../ui/navigation-menu';
-// import { useNav } from 'fumadocs-ui/provider';
+import { useNav } from 'fumadocs-ui/provider';
 import type {
   NavigationMenuContentProps,
   NavigationMenuTriggerProps,
@@ -26,8 +26,7 @@ const navItemVariants = cva(
 
 export function Navbar(props: HTMLAttributes<HTMLElement>) {
   const [value, setValue] = useState('');
-  // const { isTransparent } = useNav();
-  const isTransparent = true;
+  const { isTransparent } = useNav();
 
   return (
     <NavigationMenu value={value} onValueChange={setValue} asChild>

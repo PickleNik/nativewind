@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import { HomeLayout } from '@/components/home';
 import { Logo } from '../assets';
 import { BookText, Book, Cpu, Heart, Layout as LayoutIcon, LayoutTemplate, Server, UsersRound } from 'lucide-react';
-import { RootToggle } from 'fumadocs-ui/components/layout/root-toggle';
+import { RootToggle } from '@/components/layout/root-toggle';
 
 export default function Layout({ children }: { children: ReactNode }) {
   return <HomeLayout
@@ -11,33 +11,30 @@ export default function Layout({ children }: { children: ReactNode }) {
     }}
     githubUrl='https://github.com/nativewind/nativewind'
     nav={{
-      // transparentMode: 'top',
+      transparentMode: 'top',
       title: (
         <>
-          {/* TODO: pass currentColor based on theme */}
           <Logo />
-          NativeWind
-          <RootToggle
-            // onClick={(e) => {
-            //   e.preventDefault();
-            //   e.stopPropagation();
-            // }}
-            className="rounded-full border pr-2 cursor-pointer"
-            options={[
-              
-              {
-                title: 'v4',
-                url: '/docs',
-              },
-              {
-                title: 'v2',
-                url: 'https://www.nativewind.dev/v2/',
-              },
-            ]}
-          />
+          <div className="-ml-1.5">NativeWind</div>
         </>
       ),
     }}
+    afterTitle={(
+      <RootToggle
+        key="root-toggle"
+        className="rounded-full border pr-2 cursor-pointer ml-4 pl-3"
+        options={[
+          {
+            title: 'v4',
+            url: '/docs',
+          },
+          {
+            title: 'v2',
+            url: 'https://www.nativewind.dev/v2/',
+          },
+        ]}
+      />
+    )}
     links={[
       // NOTE: docs link is separate to only show in home layout and not in docs layout, linkItems are passed to docs/layout.tsx
       {

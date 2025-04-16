@@ -261,6 +261,7 @@ function DocsNavbar({
               <SidebarIcon />
             </SidebarCollapseTrigger>
           ) : null}
+          {/* TODO: move */}
           {sidebarCollapsible && navMode === 'top' ? (
             <SidebarCollapseTrigger
               className={cn(
@@ -277,7 +278,7 @@ function DocsNavbar({
           <Link
             href={nav.url ?? '/'}
             className={cn(
-              'inline-flex items-center gap-2.5 font-semibold',
+              'inline-flex items-center gap-2.5 font-semibold group',
               navMode === 'auto' && 'md:hidden',
             )}
           >

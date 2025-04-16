@@ -21,9 +21,8 @@ export default function Layout({ children }: { children: ReactNode }) {
         // transparentMode: 'top',
         title: (
           <>
-            {/* TODO: pass currentColor based on theme */}
-            <Logo />
-            NativeWind
+            <Logo className="group-hover:text-fd-primary duration-300" />
+            <div className="-ml-1.5">NativeWind</div>
           </>
         ),
         afterTitle: (

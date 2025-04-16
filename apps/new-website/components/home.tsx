@@ -2,7 +2,7 @@ import { Fragment, type HTMLAttributes } from 'react';
 import { type NavOptions, replaceOrDefault } from './shared';
 import { cn } from '../lib/cn';
 import { getLinks, type BaseLayoutProps } from './shared';
-// import { NavProvider } from 'fumadocs-ui/provider';
+import { NavProvider } from 'fumadocs-ui/provider';
 import {
   Navbar,
   NavbarLink,
@@ -40,7 +40,8 @@ export interface HomeLayoutProps
        */
       enableHoverToOpen?: boolean;
     }
-  >;
+  >,
+  afterTitle?: React.ReactNode;
 }
 
 export function HomeLayout(props: HomeLayoutProps) {
@@ -50,14 +51,14 @@ export function HomeLayout(props: HomeLayoutProps) {
     githubUrl,
     i18n: _i18n,
     themeSwitch: _themeSwitch,
-    // disableThemeSwitch: _disableThemeSwitch,
+    afterTitle,
     ...rest
   } = props;
 
   const finalLinks = getLinks(links, githubUrl);
 
   return (
-    // <NavProvider transparentMode={nav?.transparentMode}>
+    <NavProvider transparentMode={nav?.transparentMode}>
       <main
         id="nd-home-layout"
         {...rest}
@@ -68,12 +69,13 @@ export function HomeLayout(props: HomeLayoutProps) {
         })}
         {props.children}
       </main>
-    // </NavProvider>
+    </NavProvider>
   );
 }
 
 function Header({
   nav: { enableSearch = true, ...nav } = {},
+  afterTitle,
   i18n = false,
   finalLinks,
   themeSwitch,
@@ -91,10 +93,11 @@ function Header({
     <Navbar>
       <Link
         href={nav.url ?? '/'}
-        className="inline-flex items-center gap-2.5 font-semibold"
+        className="inline-flex items-center gap-2.5 font-semibold group"
       >
         {nav.title}
       </Link>
+      {afterTitle}
       {nav.children}
       <ul className="flex flex-row items-center gap-2 px-6 max-sm:hidden">
         {navItems

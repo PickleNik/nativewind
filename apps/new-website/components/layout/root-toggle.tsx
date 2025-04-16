@@ -45,7 +45,7 @@ export function RootToggle({
             pathname.endsWith('/') ? pathname.slice(0, -1) : pathname,
           )
         : isActive(item.url, pathname, true),
-    );
+    ) || options[0];
   }, [options, pathname]);
 
   const onClick = () => {
