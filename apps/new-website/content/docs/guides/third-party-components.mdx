@@ -8,7 +8,7 @@ A third-party component is a component that is a dependency of your application 
 
 This is an example of a 3rd party component that does not pass the `className` prop down:
 
-```jsx
+```tsx
 // ❌ This component will not work with NativeWind
 // This component is 'picking' the props.
 // Any props that are not explicitly defined will not be passed down
@@ -26,7 +26,7 @@ function ThirdPartyComponent({ style, ...props }) {
 
 If you encounter a 3rd party component 'picks' its props, you should consider submitting a pull request to modify the component so it passes all props down. Components that 'pick' their props can be very limiting, and not just for NativeWind! React Native often adds new APIs and 'picking' props prevents you from using these new features.
 
-```jsx
+```tsx
 function ThirdPartyComponent({ style }) {
   return <View style={style} />;
 }
