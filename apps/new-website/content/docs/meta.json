@@ -22,12 +22,12 @@
     "guides/third-party-components",
     "guides/themes",
     "guides/editor-setup",
-    "guides/component-libraries",
 
+    
     "---Core concepts---",
     "core-concepts/tailwindcss",
     "core-concepts/quirks",
-    "core-concepts/states",
+
     "core-concepts/responsive-design",
     "core-concepts/dark-mode",
     "core-concepts/functions-and-directives",

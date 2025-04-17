@@ -5,26 +5,26 @@ title: Compatibility with Comments
 import Legend from "./_legend.mdx";
 
 <table>
-  <tbody style={{ display: "table", width: "100%" }}>
+  <tbody>
     <tr>
-      <th style={{ whiteSpace: "nowrap" }}>Class</th>
+      <th className="whitespace-nowrap">Class</th>
       <th>Support</th>
       <th>Comments</th>
     </tr>
     {(props.supported || []).map((value, index) => (
       <tr key={`supported-${index}`}>
-        <td style={{ whiteSpace: "nowrap" }}>
+        <td className="whitespace-nowrap">
           <pre>
             <code>{value[0]}</code>
           </pre>
         </td>
-        <td style={{ whiteSpace: "nowrap" }}>✅ Full Support</td>
+        <td className="whitespace-nowrap">✅ Full Support</td>
         <td>{value[1]}</td>
       </tr>
     ))}
     {(props.experimental || []).map((value, index) => (
       <tr key={`supported-${index}`}>
-        <td style={{ whiteSpace: "nowrap" }}>
+        <td className="whitespace-nowrap">
           <pre>
             <code>{value[0]}</code>
           </pre>
@@ -35,7 +35,7 @@ import Legend from "./_legend.mdx";
     ))}
     {(props.native || []).map((value, index) => (
       <tr key={`supported-${index}`}>
-        <td style={{ whiteSpace: "nowrap" }}>
+        <td className="whitespace-nowrap">
           <pre>
             <code>{value[0]}</code>
           </pre>
@@ -46,7 +46,7 @@ import Legend from "./_legend.mdx";
     ))}
     {(props.partial || []).map((value, index) => (
       <tr key={`partial-${index}`}>
-        <td style={{ whiteSpace: "nowrap" }}>
+        <td className="whitespace-nowrap">
           <pre>
             <code>{value[0]}</code>
           </pre>
@@ -57,7 +57,7 @@ import Legend from "./_legend.mdx";
     ))}
     {(props.none || []).map((value, index) => (
       <tr key={`partial-${index}`}>
-        <td style={{ whiteSpace: "nowrap" }}>
+        <td className="whitespace-nowrap">
           <pre>
             <code>{value[0]}</code>
           </pre>
