@@ -43,3 +43,8 @@
   background-position: 0 0, 10px 10px;
 
 }
+
+/* smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
