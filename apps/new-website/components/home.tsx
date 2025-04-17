@@ -99,21 +99,22 @@ function Header({
       </Link>
       {afterTitle}
       {nav.children}
-      <ul className="flex flex-row items-center gap-2 px-6 max-sm:hidden">
+      <ul className="flex flex-row items-center justify-center flex-1 gap-2 pr-12 max-sm:hidden">
         {navItems
           .filter((item) => !isSecondary(item))
           .map((item, i) => (
             <NavbarLinkItem key={i} item={item} className="text-sm" />
           ))}
       </ul>
-      <div className="flex flex-row items-center justify-end gap-1.5 flex-1">
+      <div className="flex flex-row items-center justify-end gap-1.5 max-lg:flex-1">
         {enableSearch ? (
           <>
-            <SearchToggle className="lg:hidden" hideIfDisabled />
-            <LargeSearchToggle
+            <SearchToggle className="" hideIfDisabled />
+            {/* <SearchToggle className="lg:hidden" hideIfDisabled /> */}
+            {/* <LargeSearchToggle
               className="w-full max-w-[240px] max-lg:hidden"
               hideIfDisabled
-            />
+            /> */}
           </>
         ) : null}
         {i18n ? (

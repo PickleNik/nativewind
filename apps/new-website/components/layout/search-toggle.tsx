@@ -40,9 +40,11 @@ export function SearchToggle({
 }
 
 export function LargeSearchToggle({
+  onHeroSection = false,
   hideIfDisabled,
   ...props
 }: ButtonHTMLAttributes<HTMLButtonElement> & {
+  onHeroSection?: boolean;
   hideIfDisabled?: boolean;
 }) {
   const { enabled, hotKey, setOpenSearch } = useSearchContext();
@@ -55,7 +57,7 @@ export function LargeSearchToggle({
       data-search-full=""
       {...props}
       className={cn(
-        'inline-flex items-center gap-2 rounded-full border bg-fd-secondary/50 p-1.5 text-sm text-fd-muted-foreground transition-colors hover:bg-fd-accent hover:text-fd-accent-foreground',
+        `inline-flex items-center gap-2 border ${onHeroSection ? 'border-dashed box-content bg-white/90 dark:bg-black/80 hover:border-fd-accent' : 'bg-fd-secondary/50 hover:bg-fd-accent'} p-1.5 text-sm text-fd-muted-foreground transition-colors hover:text-fd-accent-foreground`,
         props.className,
       )}
       onClick={() => {
@@ -63,7 +65,7 @@ export function LargeSearchToggle({
       }}
     >
       <SearchIcon className="ms-1 size-4" />
-      {text.search}
+      {text.search} {onHeroSection && "docs"}
       <div className="ms-auto inline-flex gap-0.5">
         {hotKey.map((k, i) => (
           <kbd key={i} className="rounded-md border bg-fd-background px-1.5">
