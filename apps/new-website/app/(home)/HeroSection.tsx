@@ -23,7 +23,7 @@ export default function HeroSection() {
       </div>
       {/* <div className="-z-10 h-24 w-[33rem] bg-cyan-500/50 rounded-[100%] max-w-screen absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blur-3xl "></div> */}
 
-      <VectorField />
+      {/* <VectorField /> */}
         
       <SectionLink className="-mb-8" href="#" name="what is nativewind?" />
       <h1 className="text-4xl leading-20 sm:text-6xl md:text-7xl lg:text-8xl font-bold opacity-50 dark:opacity-90 bg-gradient-to-br from-black to-cyan-800 bg-clip-text text-transparent dark:from-white dark:from-50% border-y border-dashed bg-fd-background backdrop-blur">NativeWind</h1>
