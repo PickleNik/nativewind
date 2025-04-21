@@ -5,9 +5,9 @@ import SectionLink from "./SectionLink";
 
 export default function HeroSection() {
   return (
-    <section className="flex relative flex-col gap-8 min-h-screen justify-center box-content border-b border-fd-primary border-dashed overflow-clip">
-      <div className="absolute top-1/4 right-1/4 bg-gradient-to-r from-cyan-500/20 to-cyan-400 bg-clip-text text-transparent text-4xl perspective-dramatic scale-3d -rotate-z-30 rotate-x-60 scale-60">nw-text-cyan-500/80</div>
-      <div className="absolute top-1/4 left-1/4 bg-gradient-to-r from-pink-400 to-pink-500/20 bg-clip-text text-transparent text-4xl perspective-dramatic scale-3d rotate-z-30 -rotate-x-60 scale-60">nw-text-pink-500/80</div>
+    <section className="flex relative flex-col gap-8 min-h-screen justify-center box-content overflow-clip">
+      {/* <div className="absolute top-1/4 right-1/4 bg-gradient-to-r from-cyan-500/20 to-cyan-400 bg-clip-text text-transparent text-4xl perspective-dramatic scale-3d -rotate-z-30 rotate-x-60 scale-60">nw-text-cyan-500/80</div> */}
+      {/* <div className="absolute top-1/4 left-1/4 bg-gradient-to-r from-pink-400 to-pink-500/20 bg-clip-text text-transparent text-4xl perspective-dramatic scale-3d rotate-z-30 -rotate-x-60 scale-60">nw-text-pink-500/80</div> */}
         
       <div className="absolute -z-10 inset-0 w-full h-full [mask-image:linear-gradient(to_bottom,red,transparent_55%)] overflow-x-clip">
         <div className="-z-10 bg-gradient-to-b from-white to-white dark:from-neutral-800 dark:to-neutral-800 rounded-full w-[50rem] h-[50rem] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border dark:blur-3xl"></div>
@@ -25,15 +25,15 @@ export default function HeroSection() {
 
       {/* <VectorField /> */}
         
-      <SectionLink className="-mb-8" href="#" name="what is nativewind?" />
+      <SectionLink className="-mb-8 z-10" href="#" name="what is nativewind?" />
       <h1 className="text-4xl leading-20 sm:text-6xl md:text-7xl lg:text-8xl font-bold opacity-50 dark:opacity-90 bg-gradient-to-br from-black to-cyan-800 bg-clip-text text-transparent dark:from-white dark:from-50% border-y border-dashed bg-fd-background backdrop-blur">NativeWind</h1>
-      <div className="flex justify-center border-y border-dashed relative"> 
+      <div className="flex justify-center border-y border-dashed relative backdrop-blur dark:opacity-90"> 
         <p className="text-fd-muted-foreground text-pretty max-w-[40ch] text-center">
           Do you like using Tailwind CSS to style your apps? This helps you do that in <a href="https://reactnative.dev/" className="font-bold underline decoration-fd-primary text-fd-accent-foreground underline-offset-2 duration-200 hover:underline-offset-4">React Native</a>.
         </p>
       </div>
 
-      <div className="flex gap-4 justify-center border-y border-dashed box-content">
+      <div className="flex gap-4 justify-center border-y border-dashed box-content backdrop-blur dark:opacity-90">
         <LargeSearchToggle
           className="w-full max-w-[240px] -my-[1px]"
           onHeroSection

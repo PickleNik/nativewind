@@ -46,14 +46,14 @@ export default function VectorField() {
         }
 
         // v1
-        // function vectorField(x: number, y: number, t: number) {
-        //   const scale = 0.002;
-        //   const angle = Math.sin(x * scale + t * 0.0005) * Math.cos(y * scale + t * 0.0003) * Math.PI * 2;
-        //   return {
-        //     vx: Math.cos(angle),
-        //     vy: Math.sin(angle)
-        //   };
-        // }
+        function vectorField(x: number, y: number, t: number) {
+          const scale = 0.002;
+          const angle = Math.sin(x * scale + t * 0.0005) * Math.cos(y * scale + t * 0.0003) * Math.PI * 2;
+          return {
+            vx: Math.cos(angle),
+            vy: Math.sin(angle)
+          };
+        }
 
         // v2 (lame)
         // function vectorField(x: number, y: number, t: number) {
@@ -72,24 +72,24 @@ export default function VectorField() {
         // }
 
         // v3 noise
-        function vectorField(x: number, y: number, t: any) {
-          const scale = 0.009;
-          const eps = 1;
+        // function vectorField(x: number, y: number, t: any) {
+        //   const scale = 0.009;
+        //   const eps = 1;
         
-          // Add more variation with faster-moving waves
-          const scalarField = (x: number, y: number, t: number) =>
-            Math.sin((x * scale + t * 0.002)) * Math.cos((y * scale + t * 0.002)) +
-            Math.sin((y * scale * 0.7 + t * 0.001)) * Math.cos((x * scale * 0.5 + t * 0.0015));
+        //   // Add more variation with faster-moving waves
+        //   const scalarField = (x: number, y: number, t: number) =>
+        //     Math.sin((x * scale + t * 0.002)) * Math.cos((y * scale + t * 0.002)) +
+        //     Math.sin((y * scale * 0.7 + t * 0.001)) * Math.cos((x * scale * 0.5 + t * 0.0015));
         
-          const dx = scalarField(x + eps, y, t) - scalarField(x - eps, y, t);
-          const dy = scalarField(x, y + eps, t) - scalarField(x, y - eps, t);
+        //   const dx = scalarField(x + eps, y, t) - scalarField(x - eps, y, t);
+        //   const dy = scalarField(x, y + eps, t) - scalarField(x, y - eps, t);
         
-          // Curl vector (perpendicular to gradient)
-          return {
-            vx: dy * 5, // Amplify result for stronger motion
-            vy: -dx * 5
-          };
-        }
+        //   // Curl vector (perpendicular to gradient)
+        //   return {
+        //     vx: dy * 5, // Amplify result for stronger motion
+        //     vy: -dx * 5
+        //   };
+        // }
 
         // v4 wiggles
         // function vectorField(x: number, y: number, t: number) {
@@ -197,8 +197,10 @@ export default function VectorField() {
           
           for (let p of particles) {
             const v = vectorField(p.x, p.y, t);
-            p.x += v.vx * 25;
-            p.y += v.vy * 25;
+            // p.x += v.vx * 25;
+            // p.y += v.vy * 25;
+            p.x += v.vx * 0.75;
+            p.y += v.vy * 0.75;
 
             applyMouseForce(p);
 
@@ -218,7 +220,10 @@ export default function VectorField() {
               if (dist < 100) {
                 ctx.fillStyle = 'rgba(0, 255, 255, 1)'; // Glow cyan near mouse
               } else {
-                ctx.fillStyle = 'rgba(222, 222, 222, 0.8)'; // Default white trails
+                // NOTE: highlights on hover
+                // ctx.fillStyle = 'rgba(222, 222, 222, 0.8)'; // Default white trails
+              ctx.fillStyle = 'rgba(128, 128, 128, 0.5)'; // Default white trails
+
               }
             } else {
               ctx.fillStyle = 'rgba(128, 128, 128, 0.5)'; // Default white trails
@@ -249,7 +254,7 @@ export default function VectorField() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed top-0 left-0 w-screen h-screen -z-40"
+      className="fixed top-0 left-0 w-screen h-screen -z-40 pointer-events-none"
     />
   );
 }
