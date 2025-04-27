@@ -70,6 +70,24 @@
             );-webkit-mask-composite:destination-in;mask-composite:intersect
 }
 
+.animate-left-right {
+  animation: left-right 1.5s alternate infinite;
+}
+@keyframes left-right {
+  0%, 10% {
+    transform: translateX(0) rotate(0deg);
+  }
+  /* 33% {
+    translate: 0 100%;
+  }
+  66% {
+    translate: 0 -100%;
+  } */
+  90%, 100% {
+    transform: translateX(calc(100cqw - 1rem - 1.25rem));
+  }
+}
+
 /* smooth scroll */
 html {
   scroll-behavior: smooth;
