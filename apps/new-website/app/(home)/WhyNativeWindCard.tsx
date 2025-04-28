@@ -62,7 +62,7 @@ export default function WhyNativewindCard({
         <div className={`text-2xl -mt-4 font-mono text-right ${textVariants[color as keyof typeof textVariants]} translate-y-1/2 px-4 w-full duration-300 lg:text-4xl absolute top-6 right-6 font-bold`}>
           {title}
         </div>
-        <div className={`relative w-full max-h-[28rem] grid place-items-center aspect-square rounded-2xl border bg-fd-background/50 backdrop-blur text-left text-fd-foreground/50 ${borderVariants[color as keyof typeof borderVariants]} duration-300 overflow-clip`}>
+        <div className={`relative w-full max-h-[28rem] grid place-items-center aspect-square rounded-2xl border bg-fd-background/50 backdrop-blur text-left text-fd-foreground/50 ${borderVariants[color as keyof typeof borderVariants]} ${number === '00' && 'group-hover:invert group-hover:hue-rotate-180'} duration-300 overflow-clip`}>
           <div className="group-hover:grayscale border h-3 w-3 bg-red-500/10 rounded-full absolute left-2 top-2 border-red-500/10" />
           <div className="group-hover:grayscale border h-3 w-3 bg-yellow-500/10 rounded-full absolute left-7 top-2 border-yellow-500/10" />
           <div className="group-hover:grayscale border h-3 w-3 bg-green-500/10 rounded-full absolute left-12 top-2 border-green-500/10" />
@@ -71,13 +71,13 @@ export default function WhyNativewindCard({
         </div>
 
         <div className="flex justify-between items-end w-full">
-          <button
+          <div
             className="relative flex items-center gap-2 opacity-90 duration-300 cut-corners py-2 pl-6 pr-4 rounded-tr-md rounded-bl-md bg-black text-white dark:text-black group-hover:text-black dark:group-hover:text-white dark:bg-white font-bold group-hover:opacity-100 mt-4"
             >
             <div className={`absolute -z-10 inset-0 ${colorVariants[color as keyof typeof colorVariants]} translate-y-full -translate-x-full group-hover:translate-0 duration-300 rounded-md`} />
               Read the Docs
               <ArrowRight className="w-5 h-5 duration-300 group-hover:translate-x-0.5 -translate-x-0.5" />
-            </button>
+            </div>
           <div className={`text-2xl lg:text-4xl font-mono ${textVariants[color as keyof typeof textVariants]} duration-300`}>
            [{ number }]
           </div>
