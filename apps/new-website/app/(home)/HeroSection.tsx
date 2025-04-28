@@ -26,7 +26,7 @@ export default function HeroSection() {
       {/* <VectorField /> */}
         
       <SectionLink className="-mb-8 z-10" href="#" name="what is nativewind?" />
-      <h1 className="text-4xl leading-20 sm:text-6xl md:text-7xl lg:text-8xl font-bold opacity-50 dark:opacity-90 bg-gradient-to-br from-black to-cyan-800 bg-clip-text text-transparent dark:from-white dark:from-50% border-y border-dashed bg-fd-background backdrop-blur">NativeWind</h1>
+      <h1 className="text-4xl leading-20 sm:text-6xl md:text-7xl lg:text-8xl font-bold dark:opacity-90 bg-gradient-to-br from-black/50 to-cyan-800/90 bg-clip-text text-transparent dark:from-white/80 dark:from-50% border-y border-dashed bg-fd-background backdrop-blur">NativeWind</h1>
       <div className="flex justify-center border-y border-dashed relative backdrop-blur dark:opacity-90"> 
         <p className="text-fd-muted-foreground text-pretty max-w-[40ch] text-center">
           Do you like using Tailwind CSS to style your apps? This helps you do that in <a href="https://reactnative.dev/" className="font-bold underline decoration-fd-primary text-fd-accent-foreground underline-offset-2 duration-200 hover:underline-offset-4">React Native</a>.

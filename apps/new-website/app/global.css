@@ -45,6 +45,20 @@
   background-position: 0 0, 10px 10px;
 }
 
+.bg-grid-dots-current {
+  background-image: radial-gradient(
+    circle at 0 0,
+    currentColor 1.5px,
+    transparent 0
+  ),
+  radial-gradient(
+    circle at 100% 100%,
+    currentColor 1.5px,
+    transparent 0
+  );
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}
 
 .bg-grid-lines {
   background-position: -10px -10px;

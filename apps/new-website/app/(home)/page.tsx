@@ -1,5 +1,7 @@
+import ComponentKitsSection from "./ComponentKitsSection";
 import FooterSection from "./FooterSection";
 import HeroSection from "./HeroSection";
+import TestimonialsSection from "./TestimonialsSection";
 import WhyNativewindSection from "./WhyNativewindSection";
 
 export default function HomePage() {
@@ -16,24 +18,8 @@ export default function HomePage() {
             - Visual
             - Dan to come up with something for this  */}
         </section>
-        <section>
-        {/* Who is using NativeWind?
-            - Title
-            - Subtitle
-            - Showcase of items
-            - Item
-            - Image
-            - URL */}
-        </section>
-        <section>
-        {/* Component Kits
-            - Title
-            - Subtitle
-            - Kits
-            - Title
-            - Description
-            - Banner Image */}
-        </section>
+        <TestimonialsSection />
+        <ComponentKitsSection />
       </main>
       <FooterSection />
     </>

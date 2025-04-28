@@ -7,26 +7,29 @@ import WhyNativewindCard from "./WhyNativeWindCard";
 
 export default function WhyNativewindSection() {
   return (
-    <section id="why-nativewind" className="relative flex flex-col w-full max-w-fd-container mx-auto -mt-[1px] border-y border-dashed">      
-      <SectionLink className="z-30 -mb-5" href="#why-nativewind" name="why nativewind?" />
+    <>
+      <h1 id="why-nativewind" className="text-3xl font-bold py-8 border-y border-dashed backdrop-blur w-full dark:opacity-90">Why NativeWind?</h1>
+      <section className="relative flex flex-col w-full max-w-fd-container mx-auto -mt-[1px] border-y border-dashed">      
+        <SectionLink className="z-30" href="#why-nativewind" name="why nativewind?" />
 
-      <div className="flex-1 flex max-sm:flex-col w-full">
-        <WhyNativewindCard title="Dark/Light mode" number="00" color="cyan" visual={<DarkModeVisual/>} />
-        <div className="border-r border-dashed -mx-[0.5px]"/>
-        <WhyNativewindCard title="Grid Layout" number="01" color="pink" visual={
-          <GridLayoutVisual />
-        } />
-      </div>
-      <div className="border-b border-dashed -my-[0.5px]"/>
-      <div className="flex-1 flex max-sm:flex-col w-full">
-        <WhyNativewindCard title="CSS Variables" number="03" color="orange" visual={
-          <CSSVariablesVisual />
-        } />
-        <div className="border-r border-dashed -mx-[0.5px]"/>
-        <WhyNativewindCard title="CSS Animations" number="04" color="purple" visual={
-          <CSSAnimationVisual />
-        } />
-      </div>
-    </section>
+        <div className="flex-1 flex max-sm:flex-col w-full border-t border-dashed">
+          <WhyNativewindCard title="Dark/Light mode" number="00" color="cyan" visual={<DarkModeVisual/>} />
+          <div className="border-r border-dashed -mx-[0.5px]"/>
+          <WhyNativewindCard title="Grid Layout" number="01" color="pink" visual={
+            <GridLayoutVisual />
+          } />
+        </div>
+        <div className="border-b border-dashed -my-[0.5px]"/>
+        <div className="flex-1 flex max-sm:flex-col w-full">
+          <WhyNativewindCard title="CSS Variables" number="03" color="orange" visual={
+            <CSSVariablesVisual />
+          } />
+          <div className="border-r border-dashed -mx-[0.5px]"/>
+          <WhyNativewindCard title="CSS Animations" number="04" color="purple" visual={
+            <CSSAnimationVisual />
+          } />
+        </div>
+      </section>
+    </>
   )
 }
