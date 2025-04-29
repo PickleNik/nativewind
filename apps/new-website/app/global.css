@@ -109,3 +109,15 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 3rem;
 }
+
+.animate-fade-in {
+  animation: fade-in 3s ease-in;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

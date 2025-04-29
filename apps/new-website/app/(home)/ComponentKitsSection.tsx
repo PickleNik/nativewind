@@ -5,7 +5,7 @@ export default function ComponentKitsSection() {
   return (
     <>
       <h1 id="component-kits" className="text-3xl font-bold pb-8 border-y border-dashed backdrop-blur w-full dark:opacity-90 -mt-[1px] pt-9">UI Component Kits</h1>
-      <section className="relative flex flex-col w-full max-w-fd-container mx-auto -mt-[1px] border-y border-dashed">      
+      <section className="relative flex flex-col w-full max-w-fd-container mx-auto -mt-[1px] border-t border-dashed [mask:linear-gradient(to_bottom,red_calc(100%-5rem),transparent)]">      
         <SectionLink className="z-30" href="#component-kits" name="component kits" />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t border-dashed text-left">
           <a target="_blank" href="https://nativewindui.com" className="p-10 flex-1 hover:bg-black/5 dark:hover:bg-cyan-400/5 duration-300 group border-r border-dashed relative">

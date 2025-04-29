@@ -25,9 +25,13 @@ export default function VectorField() {
         // window.addEventListener('resize', resize);
 
         window.addEventListener('mousemove', (e) => {
-          if (mouse && mouse.current) {
-            mouse.current.x = e.clientX;
-            mouse.current.y = e.clientY;
+          if (mouse && mouse.current && canvasRef.current) {
+            const rect = canvasRef.current.getBoundingClientRect(); // Get canvas bounds
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+          
+            mouse.current.x = mouseX;
+            mouse.current.y = mouseY;
           }
         });
     
@@ -70,6 +74,181 @@ export default function VectorField() {
         //     vy: Math.sin(angle) * noiseStrength
         //   };
         // }
+
+        // v2 + cursor
+        // function vectorField(x: number, y: number, t: number, centerX: number, centerY: number) {
+        //   const scale = 0.002;
+        //   const noiseStrength = 3;
+        
+        //   // Shift x/y relative to the center (cursor)
+        //   const dx = x - centerX;
+        //   const dy = y - centerY;
+        
+        //   // Layered trigonometric flow field, but around (centerX, centerY)
+        //   const nx = Math.sin((dx + t * 0.02) * scale) + Math.cos((dy - t * 0.015) * scale * 1.3);
+        //   const ny = Math.cos((dy + t * 0.025) * scale) + Math.sin((dx - t * 0.018) * scale * 0.7);
+        
+        //   const angle = Math.atan2(ny, nx); // Converts flow to angle
+
+        //   const dist = Math.sqrt(dx * dx + dy * dy);
+        //   // const falloff = Math.max(0, 1 - dist / 300); // strong near, fades at 300px
+        //   // const strength = noiseStrength * falloff;
+
+        //   return {
+        //     vx: Math.cos(angle) * noiseStrength,
+        //     vy: Math.sin(angle) * noiseStrength
+        //   };
+          
+        // }
+
+        // v2.5
+        // function vectorField(x: number, y: number, t: number, centerX: number, centerY: number) {
+        //   const scale = 0.002;
+        //   const noiseStrength = 3;
+        
+        //   // Base flow field (global, ambient noise)
+        //   const nx = Math.sin((x + t * 0.02) * scale) + Math.cos((y - t * 0.015) * scale * 1.3);
+        //   const ny = Math.cos((y + t * 0.025) * scale) + Math.sin((x - t * 0.018) * scale * 0.7);
+        
+        //   const baseAngle = Math.atan2(ny, nx);
+        //   let vx = Math.cos(baseAngle) * noiseStrength;
+        //   let vy = Math.sin(baseAngle) * noiseStrength;
+        
+        //   // Swirl effect near cursor
+        //   const dx = x - centerX;
+        //   const dy = y - centerY;
+        //   const distSq = dx * dx + dy * dy;
+        //   const maxDist = 150; // radius of influence
+        //   if (distSq < maxDist * maxDist) {
+        //     const dist = Math.sqrt(distSq);
+        //     const strength = (1 - dist / maxDist) * 5.0; // Stronger swirl near center
+        
+        //     // Tangential (perpendicular) swirl
+        //     const swirlX = -dy / dist;
+        //     const swirlY = dx / dist;
+        
+        //     vx += swirlX * strength;
+        //     vy += swirlY * strength;
+        //   }
+        
+        //   return { vx, vy };
+        // }
+        
+        // v2.8 (only cursor swirl)
+        // function vectorField(x: number, y: number, t: number, centerX: number, centerY: number) {
+        //   const swirlRadius = 150; // radius of swirl influence
+        //   const swirlStrength = 4.0; // how strong the swirl is
+        //   const driftSpeed = 0.1; // very small background drift
+        
+        //   let vx = 0;
+        //   let vy = 0;
+        
+        //   if (centerX !== null && centerY !== null) {
+        //     const dx = x - centerX;
+        //     const dy = y - centerY;
+        //     const distSq = dx * dx + dy * dy;
+        
+        //     if (distSq < swirlRadius * swirlRadius) {
+        //       const dist = Math.sqrt(distSq) || 0.001; // prevent divide-by-zero
+        //       const strength = (1 - dist / swirlRadius) * swirlStrength;
+        
+        //       // Create a tangential vector (perpendicular to radial vector)
+        //       vx = -dy / dist * strength;
+        //       vy = dx / dist * strength;
+        //     }
+        //   }
+        
+        //   // Optional: add a tiny random drift to particles
+        //   vx += (Math.random() - 0.5) * driftSpeed;
+        //   vy += (Math.random() - 0.5) * driftSpeed;
+        
+        //   return { vx, vy };
+        // }
+        
+        // v2.9
+        // function vectorField(x: number, y: number, t: number, centerX: number, centerY: number) {
+        //   const swirlStrength = 4.0;  // Max swirl speed
+        //   const influenceRadius = 400; // Huge radius so it affects ~40% of particles
+        //   const baseFlowAngle = Math.PI / 8; // general wind direction (22.5 degrees)
+        //   const baseFlowSpeed = 0.2;
+        
+        //   // Base gentle flow
+        //   let vx = Math.cos(baseFlowAngle) * baseFlowSpeed;
+        //   let vy = Math.sin(baseFlowAngle) * baseFlowSpeed;
+        
+        //   if (centerX !== null && centerY !== null) {
+        //     const dx = x - centerX;
+        //     const dy = y - centerY;
+        //     const dist = Math.sqrt(dx * dx + dy * dy) || 0.001;
+        
+        //     if (dist < influenceRadius) {
+        //       const strength = (1 - dist / influenceRadius) * swirlStrength;
+        
+        //       const swirlX = -dy / dist;
+        //       const swirlY = dx / dist;
+        
+        //       vx += swirlX * strength;
+        //       vy += swirlY * strength;
+        //     }
+        //   }
+        
+        //   return { vx, vy };
+        // }
+        // v2.95 (2 centers)
+        // function vectorField(x: number, y: number, t: number, centerX: number, centerY: number, canvasWidth: number, canvasHeight: number) {
+        //   const swirlStrengthMouse = 4.0;
+        //   const swirlStrengthCenter = 2.0;
+        
+        //   const influenceRadiusMouse = 400; // large radius for mouse swirl
+        //   const influenceRadiusCenter = 600; // center swirl is even bigger
+        
+        //   const baseFlowAngle = Math.PI / 8; // general drift direction
+        //   const baseFlowSpeed = 0.2;
+        
+        //   // Start with gentle drift
+        //   let vx = Math.cos(baseFlowAngle) * baseFlowSpeed;
+        //   let vy = Math.sin(baseFlowAngle) * baseFlowSpeed;
+        
+        //   // ---- Swirl around mouse ----
+        //   if (centerX !== null && centerY !== null) {
+        //     const dx = x - centerX;
+        //     const dy = y - centerY;
+        //     const dist = Math.sqrt(dx * dx + dy * dy) || 0.001;
+        
+        //     if (dist < influenceRadiusMouse) {
+        //       const strength = (1 - dist / influenceRadiusMouse) * swirlStrengthMouse;
+        
+        //       // Standard vortex: clockwise
+        //       const swirlX = -dy / dist;
+        //       const swirlY = dx / dist;
+        
+        //       vx += swirlX * strength;
+        //       vy += swirlY * strength;
+        //     }
+        //   }
+        
+        //   // ---- Swirl around center ----
+        //   const canvasCenterX = canvasWidth / 2;
+        //   const canvasCenterY = canvasHeight / 2;
+        
+        //   const dxc = x - canvasCenterX;
+        //   const dyc = y - canvasCenterY;
+        //   const distCenter = Math.sqrt(dxc * dxc + dyc * dyc) || 0.001;
+        
+        //   if (distCenter < influenceRadiusCenter) {
+        //     const strengthCenter = (1 - distCenter / influenceRadiusCenter) * swirlStrengthCenter;
+        
+        //     // Opposite vortex: counter-clockwise
+        //     const swirlXCenter = dyc / distCenter;  // notice the flipped sign compared to above
+        //     const swirlYCenter = -dxc / distCenter;
+        
+        //     vx += swirlXCenter * strengthCenter;
+        //     vy += swirlYCenter * strengthCenter;
+        //   }
+        
+        //   return { vx, vy };
+        // }
+        
 
         // v3 noise
         // function vectorField(x: number, y: number, t: any) {
@@ -181,7 +360,7 @@ export default function VectorField() {
         // setInterval(triggerBurst, 4000 + Math.random() * 2000);
 
         function draw(t: any) {
-          if (!ctx) return;
+          if (!ctx || !canvas) return;
 
           ctx.globalCompositeOperation = 'destination-out';
           ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
@@ -196,13 +375,21 @@ export default function VectorField() {
 
           
           for (let p of particles) {
-            const v = vectorField(p.x, p.y, t);
+            const centerX = mouse.current.x ?? width / 2;
+            const centerY = mouse.current.y ?? height / 2;
+
+            // const mouseX = mouse.current.x ?? width / 2;
+            // const mouseY = mouse.current.y ?? height / 2;
+
+            const v = vectorField(p.x, p.y, t, centerX, centerY);
+            // const v = vectorField(p.x, p.y, t, mouseX, mouseY, canvas.width, canvas.height);
+            // const v = vectorField(p.x, p.y, t);
             // p.x += v.vx * 25;
             // p.y += v.vy * 25;
             p.x += v.vx * 0.75;
             p.y += v.vy * 0.75;
 
-            applyMouseForce(p);
+            // applyMouseForce(p);
 
             p.age++;
             if (p.x < 0 || p.x > width || p.y < 0 || p.y > height || p.age > 100) {
@@ -211,23 +398,32 @@ export default function VectorField() {
               p.age = 0;
             }
 
-            if (mouse.current.x && mouse.current.y) {
-              const dx = p.x - mouse.current.x;
-              const dy = p.y - mouse.current.y;
-              const dist = Math.sqrt(dx * dx + dy * dy);
-              
-              // Check if particle is near the cursor
-              if (dist < 100) {
-                ctx.fillStyle = 'rgba(0, 255, 255, 1)'; // Glow cyan near mouse
-              } else {
-                // NOTE: highlights on hover
-                // ctx.fillStyle = 'rgba(222, 222, 222, 0.8)'; // Default white trails
-              ctx.fillStyle = 'rgba(128, 128, 128, 0.5)'; // Default white trails
+            // Speed coloring:
+            const speed = Math.sqrt(v.vx * v.vx + v.vy * v.vy);
+            const speedNorm = Math.min(speed / 5.0, 1);
 
-              }
-            } else {
-              ctx.fillStyle = 'rgba(128, 128, 128, 0.5)'; // Default white trails
-            }
+            const r = 128 * (1 - speedNorm); // Red decreases with speed
+            const g = 128;
+            const b = 128;
+
+            ctx.fillStyle = `rgba(${r},${g},${b}, 0.8)`;
+
+            // if (mouse.current.x && mouse.current.y) {
+            //   const dx = p.x - mouse.current.x;
+            //   const dy = p.y - mouse.current.y;
+            //   const dist = Math.sqrt(dx * dx + dy * dy);
+            //   // Check if particle is near the cursor
+            //   if (dist < 100) {
+            //     ctx.fillStyle = 'rgba(0, 255, 255, 1)'; // Glow cyan near mouse
+            //   } else {
+            //     // NOTE: highlights on hover
+            //     // ctx.fillStyle = 'rgba(222, 222, 222, 0.8)'; // Default white trails
+            //   ctx.fillStyle = 'rgba(128, 128, 128, 0.8)'; // Default white trails
+
+            //   }
+            // } else {
+            //   ctx.fillStyle = 'rgba(128, 128, 128, 0.8)'; // Default white trails
+            // }
 
             ctx.beginPath();
             ctx.arc(p.x, p.y, 0.8, 0, Math.PI * 2);
@@ -252,9 +448,10 @@ export default function VectorField() {
   }, []);
 
   return (
+    // [mask-image:linear-gradient(to_bottom,red,transparent_55%)]
     <canvas
       ref={canvasRef}
-      className="fixed top-0 left-0 w-screen h-screen -z-40 pointer-events-none"
+      className="absolute animate-fade-in top-0 left-0 w-screen h-screen -z-10 pointer-events-none [mask-size:100%_100%] [mask-repeat:no-repeat] [mask-position:center_top] [mask-composite:exclude] [mask-mode:alpha] [mask-origin:content-box] [mask-clip:content-box] [mask-border-mode:match-source] [mask-image:radial-gradient(red,transparent_80%)]"
     />
   );
 }

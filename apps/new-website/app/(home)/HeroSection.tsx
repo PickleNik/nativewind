@@ -9,7 +9,8 @@ export default function HeroSection() {
       {/* <div className="absolute top-1/4 right-1/4 bg-gradient-to-r from-cyan-500/20 to-cyan-400 bg-clip-text text-transparent text-4xl perspective-dramatic scale-3d -rotate-z-30 rotate-x-60 scale-60">nw-text-cyan-500/80</div> */}
       {/* <div className="absolute top-1/4 left-1/4 bg-gradient-to-r from-pink-400 to-pink-500/20 bg-clip-text text-transparent text-4xl perspective-dramatic scale-3d rotate-z-30 -rotate-x-60 scale-60">nw-text-pink-500/80</div> */}
         
-      <div className="absolute -z-10 inset-0 w-full h-full [mask-image:linear-gradient(to_bottom,red,transparent_55%)] overflow-x-clip">
+      {/* [mask-image:linear-gradient(to_bottom,red,transparent_55%)] */}
+      <div className="absolute -z-10 inset-0 w-full h-full overflow-x-clip [mask-size:100%_100%] [mask-repeat:no-repeat] [mask-position:center_top] [mask-composite:exclude] [mask-mode:alpha] [mask-origin:content-box] [mask-clip:content-box] [mask-border-mode:match-source]  [mask-image:linear-gradient(to_bottom,red,transparent_88%)]">
         <div className="-z-10 bg-gradient-to-b from-white to-white dark:from-neutral-800 dark:to-neutral-800 rounded-full w-[50rem] h-[50rem] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border dark:blur-3xl"></div>
 
         {/* <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-90 w-[14rem] h-[33rem] rounded-[100%] border-[1rem] border-cyan-500"></div> */}
@@ -23,7 +24,7 @@ export default function HeroSection() {
       </div>
       {/* <div className="-z-10 h-24 w-[33rem] bg-cyan-500/50 rounded-[100%] max-w-screen absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blur-3xl "></div> */}
 
-      {/* <VectorField /> */}
+      <VectorField />
         
       <SectionLink className="-mb-8 z-10" href="#" name="what is nativewind?" />
       <h1 className="text-4xl leading-20 sm:text-6xl md:text-7xl lg:text-8xl font-bold dark:opacity-90 bg-gradient-to-br from-black/50 to-cyan-800/90 bg-clip-text text-transparent dark:from-white/80 dark:from-50% border-y border-dashed bg-fd-background backdrop-blur">NativeWind</h1>
