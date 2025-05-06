@@ -90,13 +90,13 @@ export default function Layout({ children }: { children: ReactNode }) {
         url: '/blog',
         active: 'nested-url',
       },
-      {
-        text: 'Community',
-        // TODO: GH Discussions / Discord Link?
-        url: '/community',
-        icon: <UsersRound />,
-        external: true,
-      },
+      // {
+      //   text: 'Community',
+      //   // TODO: GH Discussions / Discord Link?
+      //   url: '/community',
+      //   icon: <UsersRound />,
+      //   external: true,
+      // },
       {
         text: 'Showcase',
         url: '/showcase',

@@ -9,7 +9,7 @@ export default function CTA() {
       <div className="-z-10 absolute top-1.5 left-1.5 h-[80%] w-full bg-fd-foreground/80 group-hover:-translate-0.5 duration-300"/>
       <div className="-z-10 absolute top-2 left-2 h-[80%] w-full bg-fd-foreground/80 group-hover:-translate-1 duration-300 border-b border-dashed"/>
 
-      <div className="-z-10 absolute top-1 left-1 h-[80%] w-full bg-fd-foreground/80 group-hover:scale-y-120 group-hover:bg-fd-primary duration-300"/>
+      <div className="-z-10 group-hover:border-fd-background border-transparent border-y border-dashed absolute top-1 left-1 h-[80%] w-full bg-fd-foreground/80 group-hover:scale-y-120 group-hover:bg-fd-primary duration-300"/>
     </Link>
   )
 }

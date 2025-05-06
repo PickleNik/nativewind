@@ -2,10 +2,12 @@ import { LargeSearchToggle } from "@/components/layout/search-toggle";
 import VectorField from './VectorField';
 import CTA from "./CTA";
 import SectionLink from "./SectionLink";
+import HeroSectionVisual from "./HeroSectionVisual";
 
 export default function HeroSection() {
   return (
-    <section className="flex relative flex-col gap-8 min-h-screen justify-center box-content overflow-clip">
+    <section className="flex relative flex-col min-h-[150vh] sm:min-h-screen box-content overflow-clip">
+      <div className="flex flex-col gap-8 justify-center sm:justify-end pb-8 box-content h-full flex-1 pt-14">
       {/* <div className="absolute top-1/4 right-1/4 bg-gradient-to-r from-cyan-500/20 to-cyan-400 bg-clip-text text-transparent text-4xl perspective-dramatic scale-3d -rotate-z-30 rotate-x-60 scale-60">nw-text-cyan-500/80</div> */}
       {/* <div className="absolute top-1/4 left-1/4 bg-gradient-to-r from-pink-400 to-pink-500/20 bg-clip-text text-transparent text-4xl perspective-dramatic scale-3d rotate-z-30 -rotate-x-60 scale-60">nw-text-pink-500/80</div> */}
         
@@ -26,22 +28,24 @@ export default function HeroSection() {
 
       <VectorField />
         
-      <SectionLink className="-mb-8 z-10" href="#" name="what is nativewind?" />
-      <h1 className="text-4xl leading-20 sm:text-6xl md:text-7xl lg:text-8xl font-bold dark:opacity-90 bg-gradient-to-br from-black/50 to-cyan-800/90 bg-clip-text text-transparent dark:from-white/80 dark:from-50% border-y border-dashed bg-fd-background backdrop-blur">NativeWind</h1>
+      <SectionLink className="-mb-8 z-10 hidden sm:block" href="#" name="what is nativewind?" />
+      <h1 className="text-5xl leading-20 sm:text-6xl md:text-7xl lg:text-8xl font-bold dark:opacity-90 bg-gradient-to-br from-black/50 to-cyan-800/90 bg-clip-text text-transparent dark:from-white/80 dark:from-50% border-y border-dashed bg-fd-background backdrop-blur">NativeWind</h1>
       <div className="flex justify-center border-y border-dashed relative backdrop-blur dark:opacity-90"> 
-        <p className="text-fd-muted-foreground text-pretty max-w-[40ch] text-center">
+        <p className="text-fd-muted-foreground text-pretty max-w-[40ch] text-center px-4">
           Do you like using Tailwind CSS to style your apps? This helps you do that in <a href="https://reactnative.dev/" className="font-bold underline decoration-fd-primary text-fd-accent-foreground underline-offset-2 duration-200 hover:underline-offset-4">React Native</a>.
         </p>
       </div>
 
-      <div className="flex gap-4 justify-center border-y border-dashed box-content backdrop-blur dark:opacity-90">
+      <div className="flex gap-4 px-4 justify-center border-y border-dashed box-content backdrop-blur dark:opacity-90">
         <LargeSearchToggle
-          className="w-full max-w-[240px] -my-[1px]"
+          className="w-full max-w-[200px] sm:max-w-[240px] -my-[1px]"
           onHeroSection
           hideIfDisabled
           />
         <CTA />
+        </div>
       </div>
+      <HeroSectionVisual />
     </section>
   )
 }

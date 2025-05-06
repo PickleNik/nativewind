@@ -50,14 +50,14 @@ export default function VectorField() {
         }
 
         // v1
-        function vectorField(x: number, y: number, t: number) {
-          const scale = 0.002;
-          const angle = Math.sin(x * scale + t * 0.0005) * Math.cos(y * scale + t * 0.0003) * Math.PI * 2;
-          return {
-            vx: Math.cos(angle),
-            vy: Math.sin(angle)
-          };
-        }
+        // function vectorField(x: number, y: number, t: number) {
+        //   const scale = 0.002;
+        //   const angle = Math.sin(x * scale + t * 0.0005) * Math.cos(y * scale + t * 0.0003) * Math.PI * 2;
+        //   return {
+        //     vx: Math.cos(angle),
+        //     vy: Math.sin(angle)
+        //   };
+        // }
 
         // v2 (lame)
         // function vectorField(x: number, y: number, t: number) {
@@ -195,59 +195,59 @@ export default function VectorField() {
         //   return { vx, vy };
         // }
         // v2.95 (2 centers)
-        // function vectorField(x: number, y: number, t: number, centerX: number, centerY: number, canvasWidth: number, canvasHeight: number) {
-        //   const swirlStrengthMouse = 4.0;
-        //   const swirlStrengthCenter = 2.0;
+        function vectorField(x: number, y: number, t: number, centerX: number, centerY: number, canvasWidth: number, canvasHeight: number) {
+          const swirlStrengthMouse = 4.0;
+          const swirlStrengthCenter = 2.0;
         
-        //   const influenceRadiusMouse = 400; // large radius for mouse swirl
-        //   const influenceRadiusCenter = 600; // center swirl is even bigger
+          const influenceRadiusMouse = 400; // large radius for mouse swirl
+          const influenceRadiusCenter = 600; // center swirl is even bigger
         
-        //   const baseFlowAngle = Math.PI / 8; // general drift direction
-        //   const baseFlowSpeed = 0.2;
+          const baseFlowAngle = Math.PI / 9; // general drift direction
+          const baseFlowSpeed = 0.2;
         
-        //   // Start with gentle drift
-        //   let vx = Math.cos(baseFlowAngle) * baseFlowSpeed;
-        //   let vy = Math.sin(baseFlowAngle) * baseFlowSpeed;
+          // Start with gentle drift
+          let vx = Math.cos(baseFlowAngle) * baseFlowSpeed;
+          let vy = Math.sin(baseFlowAngle) * baseFlowSpeed;
         
-        //   // ---- Swirl around mouse ----
-        //   if (centerX !== null && centerY !== null) {
-        //     const dx = x - centerX;
-        //     const dy = y - centerY;
-        //     const dist = Math.sqrt(dx * dx + dy * dy) || 0.001;
+          // ---- Swirl around mouse ----
+          if (centerX !== null && centerY !== null) {
+            const dx = x - centerX;
+            const dy = y - centerY;
+            const dist = Math.sqrt(dx * dx + dy * dy) || 0.001;
         
-        //     if (dist < influenceRadiusMouse) {
-        //       const strength = (1 - dist / influenceRadiusMouse) * swirlStrengthMouse;
+            if (dist < influenceRadiusMouse) {
+              const strength = (1 - dist / influenceRadiusMouse) * swirlStrengthMouse;
         
-        //       // Standard vortex: clockwise
-        //       const swirlX = -dy / dist;
-        //       const swirlY = dx / dist;
+              // Standard vortex: clockwise
+              const swirlX = -dy / dist;
+              const swirlY = dx / dist;
         
-        //       vx += swirlX * strength;
-        //       vy += swirlY * strength;
-        //     }
-        //   }
+              vx += swirlX * strength;
+              vy += swirlY * strength;
+            }
+          }
         
-        //   // ---- Swirl around center ----
-        //   const canvasCenterX = canvasWidth / 2;
-        //   const canvasCenterY = canvasHeight / 2;
+          // ---- Swirl around center ----
+          const canvasCenterX = canvasWidth / 2;
+          const canvasCenterY = canvasHeight / 2;
         
-        //   const dxc = x - canvasCenterX;
-        //   const dyc = y - canvasCenterY;
-        //   const distCenter = Math.sqrt(dxc * dxc + dyc * dyc) || 0.001;
+          const dxc = x - canvasCenterX;
+          const dyc = y - canvasCenterY;
+          const distCenter = Math.sqrt(dxc * dxc + dyc * dyc) || 0.001;
         
-        //   if (distCenter < influenceRadiusCenter) {
-        //     const strengthCenter = (1 - distCenter / influenceRadiusCenter) * swirlStrengthCenter;
+          if (distCenter < influenceRadiusCenter) {
+            const strengthCenter = (1 - distCenter / influenceRadiusCenter) * swirlStrengthCenter;
         
-        //     // Opposite vortex: counter-clockwise
-        //     const swirlXCenter = dyc / distCenter;  // notice the flipped sign compared to above
-        //     const swirlYCenter = -dxc / distCenter;
+            // Opposite vortex: counter-clockwise
+            const swirlXCenter = dyc / distCenter;  // notice the flipped sign compared to above
+            const swirlYCenter = -dxc / distCenter;
         
-        //     vx += swirlXCenter * strengthCenter;
-        //     vy += swirlYCenter * strengthCenter;
-        //   }
+            vx += swirlXCenter * strengthCenter;
+            vy += swirlYCenter * strengthCenter;
+          }
         
-        //   return { vx, vy };
-        // }
+          return { vx, vy };
+        }
         
 
         // v3 noise
@@ -381,7 +381,7 @@ export default function VectorField() {
             // const mouseX = mouse.current.x ?? width / 2;
             // const mouseY = mouse.current.y ?? height / 2;
 
-            const v = vectorField(p.x, p.y, t, centerX, centerY);
+            const v = vectorField(p.x, p.y, t, centerX, centerY, canvas.width, canvas.height);
             // const v = vectorField(p.x, p.y, t, mouseX, mouseY, canvas.width, canvas.height);
             // const v = vectorField(p.x, p.y, t);
             // p.x += v.vx * 25;
@@ -406,7 +406,7 @@ export default function VectorField() {
             const g = 128;
             const b = 128;
 
-            ctx.fillStyle = `rgba(${r},${g},${b}, 0.8)`;
+            ctx.fillStyle = `rgba(${r},${g},${b}, 0.5)`;
 
             // if (mouse.current.x && mouse.current.y) {
             //   const dx = p.x - mouse.current.x;

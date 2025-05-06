@@ -67,6 +67,13 @@
     linear-gradient(to right, #8884 1px, transparent 1px),
     linear-gradient(to bottom, #8884 1px, transparent 1px);
 }
+.bg-grid-lines-lg {
+  background-position: -20px -20px;
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, #8884 1px, transparent 1px),
+    linear-gradient(to bottom, #8884 1px, transparent 1px);
+}
 
 .cut-corners {
   background:var(transparent, rgb(214, 233, 255));
