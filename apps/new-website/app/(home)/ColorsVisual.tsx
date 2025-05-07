@@ -35,7 +35,7 @@ export default function ColorsVisual() {
     e.stopPropagation()
     e.preventDefault()
     navigator.clipboard.writeText(color.replace('bg-', ''))
-    setCopiedShade(color.replace('bg-', ''))
+    setCopiedShade(color)
     setCopied(true)
     if (timeoutId) clearTimeout(timeoutId)
     const newTimeoutId = setTimeout(() => {
@@ -81,7 +81,7 @@ export default function ColorsVisual() {
           color: `var(${copiedShade.replace('bg-', '--color-')})`,
           backgroundColor: Number(copiedShade.split('-')[2]) > 500 ? `var(${copiedShade.replace('bg-', '--color-').replace(/-\d{2,3}$/, '-200')})` : `var(${copiedShade.replace('bg-', '--color-').replace(/-\d{2,3}$/, '-800')})`,
         }}>
-          {copiedShade}
+          {copiedShade.replace('bg-', '')}
         </div> <span className="hidden sm:inline">to clipboard</span>
       </div>
       <div className="grid grid-cols-18 grid-rows-11 w-[42rem] h-[28.25rem] mt-12 p-4 opacity-80 md:opacity-100 md:grayscale-100 group-hover:opacity-100 group-hover:grayscale-0 duration-300 transition-all">

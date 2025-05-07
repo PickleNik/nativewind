@@ -128,7 +128,7 @@ export default function HeroSectionVisual() {
         <View className="ios:pt-8 pt-12">
 `}
           <div className="whitespace-pre">
-            {`            <Text className="`}
+            {`          <Text className="`}
             {(titleStyles)}
             {`">`}
           </div>
@@ -136,7 +136,7 @@ export default function HeroSectionVisual() {
           </Text>
 `}
           <div className="whitespace-pre">
-            {`           <Text className="`}
+            {`          <Text className="`}
             {(titleStyles)}
             {(applicationStyles)}{`">`}
           </div>
@@ -151,11 +151,11 @@ export default function HeroSectionVisual() {
                   name={feature.icon}
 `}
           <div className="whitespace-pre">
-            {`                    className="`}
+            {`                  className="`}
             {(iconStyles)}
             {`"`}
           </div>
-{`                    ios={{ renderingMode: 'hierarchical' }}
+{`                  ios={{ renderingMode: 'hierarchical' }}
                 />
               </View>
               <View className="flex-1">
