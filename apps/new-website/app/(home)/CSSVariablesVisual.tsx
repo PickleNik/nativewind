@@ -1,15 +1,17 @@
 // import { CodeBlock, Pre } from 'fumadocs-ui/components/codeblock';
 export default function CSSVariablesVisual() {
   return (
-    <div className="max-h-[calc(100%-4rem)] mt-auto [mask-image:linear-gradient(to_bottom,red,transparent)]">
-      <pre className="font-mono text-sm overflow-y-clip group-hover:text-orange-600/60 dark:group-hover:text-orange-400/60 duration-600 ease-out group-hover:-translate-y-4">
+    <div className="max-h-[calc(100%-4rem)] sm:mt-auto [mask-image:linear-gradient(to_bottom,red,transparent)]">
+      <pre className="font-mono text-sm overflow-y-clip text-orange-600/60 dark:text-orange-400/60 sm:text-fd-foreground/50 sm:dark:text-fd-foreground/50 group-hover:text-orange-600/60 dark:group-hover:text-orange-400/60 duration-600 ease-out sm:group-hover:-translate-y-4">
         {/* TODO: highlight */}
         {`
   @theme {
     --font-sans: "Inter", sans-serif;
     --font-mono: "IBM Plex Mono", monospace;
+
     --text-tiny: 0.625rem;
     --text-tiny--line-height: 1.5rem;
+    
     --color-mint-100: oklch(0.97 0.15 145);
     --color-mint-200: oklch(0.92 0.18 145);
     --color-mint-300: oklch(0.85 0.22 145);

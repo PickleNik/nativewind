@@ -30,7 +30,7 @@ export default function ColorsVisual() {
   const [copiedShade, setCopiedShade] = useState('');
 
   return (
-    <div id="container" className="w-full h-full overflow-scroll hide-scrollbar"
+    <div id="container" className="w-full h-full sm:overflow-scroll hide-scrollbar"
       onMouseMove={(e) => {
         if (window.innerWidth < 768) return;
         const { clientX, clientY, currentTarget } = e;
@@ -65,23 +65,24 @@ export default function ColorsVisual() {
         <div className="rounded-md text-xs mx-1 py-0.5 px-1.5 font-mono whitespace-nowrap" style={{
           color: `var(${copiedShade.replace('bg-', '--color-')})`,
           backgroundColor: Number(copiedShade.split('-')[2]) > 500 ? `var(${copiedShade.replace('bg-', '--color-').replace(/-\d{2,3}$/, '-200')})` : `var(${copiedShade.replace('bg-', '--color-').replace(/-\d{2,3}$/, '-800')})`,
-        } as React.CSSProperties}>{copiedShade.replace('bg-','--color-')}</div> to clipboard
+        } as React.CSSProperties}>{copiedShade.replace('bg-','--color-')}</div> <span className="hidden sm:inline">to clipboard</span>
       </div>
-      <div className="grid grid-cols-18 grid-rows-11 w-[42rem] h-[28.25rem] mt-12 p-4 grayscale-100 opacity-50 group-hover:opacity-100 group-hover:grayscale-0 duration-300 transition-all">
+      <div className="grid grid-cols-18 grid-rows-11 w-[42rem] h-[28.25rem] mt-12 p-4 opacity-80 md:opacity-100 md:grayscale-100 group-hover:opacity-100 group-hover:grayscale-0 duration-300 transition-all">
         {/* cell 0 0 */}
         <div />
         {/* row 1 */}
         {colors.map((color, index) => (
           <div key={index} className="relative flex items-center translate-x-2.5">
             <div className="absolute inset-0 border-l -skew-x-30"/>
-            <div className="-rotate-60 w-full pl-3">{color.name}</div>
+            <div className="-rotate-60 w-full pl-3 opacity-80">{color.name}</div>
           </div>
         ))}
         {/* col1 */}
         {shades.map((shade, index) => (
           <div key={index} className="contents">
             <div className="relative flex items-center text-right">
-              <div className="w-full py-0.5 pr-2">{shade}</div>
+            <div className="absolute inset-0 border-t"/>
+              <div className="w-full py-0.5 pr-2 opacity-80">{shade}</div>
             </div>
             {/* rest of colns and rows */}
             {colors.map((color) => (
@@ -98,7 +99,7 @@ export default function ColorsVisual() {
                   setCopied(false)
                 }, 1500)
               }}>
-                <div className={`w-full h-full ${color.shades[index]} rounded-lg border border-dashed opacity-20 group-hover:opacity-50 group-hover/color:opacity-90 group-hover/color:rounded-2xl duration-500 group-hover/color:duration-0 group-active/color:opacity-100 group-active/color:duration-75`} />
+                <div className={`w-full h-full ${color.shades[index]} rounded-lg border border-dashed md:opacity-20 group-hover:opacity-50 group-hover/color:opacity-90 group-hover/color:rounded-2xl duration-500 group-hover/color:duration-0 group-active/color:opacity-100 group-active/color:duration-75`} />
               </div>
             ))}
           </div>
