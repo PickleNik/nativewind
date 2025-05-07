@@ -13,19 +13,19 @@ export default function WhyNativewindSection() {
         <SectionLink className="z-30" href="#why-nativewind" name="why nativewind?" />
 
         <div className="flex-1 flex max-sm:flex-col w-full border-t border-dashed">
-          <WhyNativewindCard title="Dark/Light mode" number="00" color="cyan" visual={<DarkModeVisual/>} />
+          <WhyNativewindCard href="/docs/core-concepts/dark-mode" title="Dark/Light mode" number="00" color="cyan" visual={<DarkModeVisual/>} />
           <div className="border-r border-dashed -mx-[0.5px]"/>
-          <WhyNativewindCard title="P3 Colors" number="01" color="pink" visual={
+          <WhyNativewindCard href="/docs/customization/colors" title="P3 Colors" number="01" color="pink" visual={
             <ColorsVisual />
           } />
         </div>
         <div className="border-b border-dashed -my-[0.5px]"/>
         <div className="flex-1 flex max-sm:flex-col w-full">
-          <WhyNativewindCard title="CSS Variables" number="03" color="orange" visual={
+          <WhyNativewindCard href="/docs/guides/themes" title="CSS Variables" number="03" color="orange" visual={
             <CSSVariablesVisual />
           } />
           <div className="border-r border-dashed -mx-[0.5px]"/>
-          <WhyNativewindCard title="CSS Animations" number="04" color="purple" visual={
+          <WhyNativewindCard href="/docs/tailwind/transitions-animation/animation" title="CSS Animations" number="04" color="purple" visual={
             <CSSAnimationVisual />
           } />
         </div>

@@ -28,7 +28,7 @@ export default function HeroSection() {
 
       <VectorField />
         
-      <SectionLink className="z-50 hidden sm:block !relative -translate-y-6" href="#" name="what is nativewind?" />
+      <SectionLink className="z-30 hidden sm:block !relative -translate-y-6" href="#" name="what is nativewind?" />
       <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium dark:opacity-90 bg-gradient-to-br from-black/50 to-cyan-800/90 bg-clip-text text-transparent dark:from-white/80 dark:from-50% border-y border-dashed bg-fd-background backdrop-blur tracking-tight leading-tight">
         <div className="w-fd-container text-start mx-auto max-lg:px-4 text-pretty max-w-full">
           NativeWind lets you use TailwindCSS to style your React Native apps.

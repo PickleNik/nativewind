@@ -34,8 +34,8 @@ export default function ColorsVisual() {
   const handleCopyColor = (color: string) => (e: { stopPropagation: () => void; preventDefault: () => void; }) => {
     e.stopPropagation()
     e.preventDefault()
-    navigator.clipboard.writeText(color)
-    setCopiedShade(color)
+    navigator.clipboard.writeText(color.replace('bg-', ''))
+    setCopiedShade(color.replace('bg-', ''))
     setCopied(true)
     if (timeoutId) clearTimeout(timeoutId)
     const newTimeoutId = setTimeout(() => {

@@ -1,10 +1,7 @@
 {
   "pages": [
     "[BookOpen][Docs](/docs/)",
-    "[BookText][Blog](/blog)",
-    "[UsersRound][Community](/community)",
-    "[LayoutTemplate][Showcase](/showcase)",
-    "[Heart][Sponsors](/sponsors)",
+    "[LayoutTemplate][Showcase](/#showcase)",
 
     "---Overview---",
     "index",
