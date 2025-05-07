@@ -1,7 +1,7 @@
+import ColorsVisual from "./ColorsVisual";
 import CSSAnimationVisual from "./CSSAnimationVisual";
 import CSSVariablesVisual from "./CSSVariablesVisual";
 import DarkModeVisual from "./DarkModeVisual";
-import GridLayoutVisual from "./GridLayoutVisual";
 import SectionLink from "./SectionLink";
 import WhyNativewindCard from "./WhyNativeWindCard";
 
@@ -15,8 +15,8 @@ export default function WhyNativewindSection() {
         <div className="flex-1 flex max-sm:flex-col w-full border-t border-dashed">
           <WhyNativewindCard title="Dark/Light mode" number="00" color="cyan" visual={<DarkModeVisual/>} />
           <div className="border-r border-dashed -mx-[0.5px]"/>
-          <WhyNativewindCard title="Grid Layout" number="01" color="pink" visual={
-            <GridLayoutVisual />
+          <WhyNativewindCard title="P3 Colors" number="01" color="pink" visual={
+            <ColorsVisual />
           } />
         </div>
         <div className="border-b border-dashed -my-[0.5px]"/>

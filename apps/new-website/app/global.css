@@ -75,6 +75,11 @@
     linear-gradient(to bottom, #8884 1px, transparent 1px);
 }
 
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+}
+
 .cut-corners {
   background:var(transparent, rgb(214, 233, 255));
   mask:linear-gradient(
