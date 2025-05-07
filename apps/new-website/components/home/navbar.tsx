@@ -34,7 +34,7 @@ export function Navbar(props: HTMLAttributes<HTMLElement>) {
         id="nd-nav"
         {...props}
         className={cn(
-          'fixed left-1/2 top-(--fd-banner-height) backdrop-blur-lg z-40 box-content w-full max-w-fd-container -translate-x-1/2 border-b border-fd-foreground/10 transition-colors lg:w-[calc(100%-1rem)] lg:border-x',
+          'fixed left-1/2 top-(--fd-banner-height) bg-fd-background/40 backdrop-blur-lg z-40 box-content w-full max-w-fd-container -translate-x-1/2 border-b border-fd-foreground/10 transition-colors lg:w-[calc(100%-1rem)] lg:border-x',
           value.length > 0 ? '' : '',
           (!isTransparent || value.length > 0) &&
             'bg-fd-background/80 backdrop-blur-lg',

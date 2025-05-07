@@ -133,3 +133,18 @@ html {
     opacity: 1;
   }
 }
+
+/* used for letters in hero visual */
+@keyframes fade-to-gray {
+  0% {
+    color: var(--color-fd-primary)
+  }
+  100% {
+    /* color: alpha(var(--color-fd-foreground) / 50%) */
+    color: var(--color-fd-foreground)
+  }
+}
+
+.animate-fade-to-gray {
+  animation: fade-to-gray 1s ease-in-out forwards;
+}

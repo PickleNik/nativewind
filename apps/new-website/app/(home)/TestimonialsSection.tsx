@@ -20,25 +20,24 @@ export default function ComponentKitsSection() {
       <h1 id="showcase" className="text-3xl font-bold pb-8 border-y border-dashed backdrop-blur w-full dark:opacity-90 -mt-[1px] pt-9">Who is using NativeWind?</h1>
       <section className="relative flex flex-col w-full max-w-fd-container mx-auto -mt-[1px] border-y border-dashed">      
         <SectionLink className="z-30" href="#showcase" name="showcase" />
-        These people:
-        <div className="grid grid-cols-3 flex-wrap text-left gap-8 justify-around p-8 [mask:linear-gradient(to_right,transparent,red_1rem,red_calc(100%-1rem),transparent)] max-w-full mt-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 flex-wrap text-left gap-8 justify-around p-8 [mask:linear-gradient(to_right,transparent,red_1rem,red_calc(100%-1rem),transparent)] max-w-full mt-2">
           {showcaseItems.map((item) => (
-            <div key={item.name} className="group rounded-2xl border border-dashed p-4 flex-1 bg-fd-card relative mt-44">
-              <div className="p-4 w-36 rounded-2xl border border-dashed bg-fd-accent/20 backdrop-blur-3xl top-0 right-2 rotate-3 absolute -translate-y-2/3 shadow-xl group-hover:shadow-2xl group-hover:-translate-y-[60%] group-hover:rounded-3xl group-hover:border-fd-foreground dark:group-hover:border-fd-primary duration-300 ease-out group-hover:bg-fd-background group-hover:rotate-6 flex flex-col gap-4 justify-around">
+            <div key={item.name} className="group rounded-2xl border border-dashed p-4 flex-1 bg-fd-card relative mt-24">
+              <div className="p-4 md:w-36 rounded-2xl border border-dashed bg-fd-accent/20 backdrop-blur-3xl top-0 right-2 rotate-3 absolute -translate-y-2/3 shadow-xl group-hover:shadow-2xl group-hover:-translate-y-[60%] group-hover:rounded-3xl group-hover:border-fd-foreground dark:group-hover:border-fd-primary duration-300 ease-out group-hover:bg-fd-background group-hover:rotate-6 flex flex-col gap-4 justify-around">
                 {item.website && (
-                  <a href={item.website} target="_blank" rel="noopener" className="group/link border px-3 py-1.5 shadow-xl dark:shadow-2xl group-hover:-translate-y-4 group-hover:-rotate-6 group-hover:translate-x-4 duration-300 bg-fd-accent hover:bg-fd-background hover:border-black dark:hover:border-fd-primary dark:hover:shadow-fd-primary rounded-xl font-mono text-sm w-fit ease-[cubic-bezier(0.175,0.885,0.32,1.275)] flex gap-2">
+                  <a href={item.website} target="_blank" rel="noopener noreferrer" className="group/link border px-3 py-1.5 shadow-xl dark:shadow-2xl group-hover:-translate-y-4 group-hover:-rotate-6 group-hover:translate-x-4 duration-300 bg-fd-accent hover:bg-fd-background hover:border-black dark:hover:border-fd-primary dark:hover:shadow-fd-primary rounded-xl font-mono text-sm w-fit ease-[cubic-bezier(0.175,0.885,0.32,1.275)] flex gap-2">
                     {item.website}
                     <ExternalLink className="w-4 h-4 opacity-0 inline-block group-hover/link:opacity-100 group-hover/link:translate-0 -translate-x-1/2 translate-y-1/2 scale-50 group-hover/link:scale-100 duration-300" />
                   </a>
                 )}
                 <div className="flex gap-4">
                   {item.appstore && (
-                    <a href={item.appstore} target="_blank" rel="noopener" className="border p-1.5 shadow-xl dark:shadow-2xl duration-300 bg-fd-accent hover:bg-fd-background hover:border-black dark:hover:border-fd-primary dark:hover:shadow-fd-primary rounded-xl font-mono text-sm w-fit group-hover:-rotate-12 group-hover:-translate-y-1 group-hover:-translate-x-2 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] delay-50 hover:delay-0">
+                    <a href={item.appstore} target="_blank" rel="noopener noreferrer" className="border p-1.5 shadow-xl dark:shadow-2xl duration-300 bg-fd-accent hover:bg-fd-background hover:border-black dark:hover:border-fd-primary dark:hover:shadow-fd-primary rounded-xl font-mono text-sm w-fit group-hover:-rotate-12 group-hover:-translate-y-1 group-hover:-translate-x-2 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] delay-50 hover:delay-0">
                       <AppStoreIcon className="w-8 h-8 fill-current" />
                     </a>
                   )}
                   {item.playstore && (
-                    <a href={item.playstore} target="_blank" rel="noopener" className="border p-1.5 shadow-xl dark:shadow-2xl duration-300 bg-fd-accent hover:bg-fd-background hover:border-black dark:hover:border-fd-primary dark:hover:shadow-fd-primary rounded-xl font-mono text-sm w-fit group-hover:rotate-6 group-hover:-translate-y-1 group-hover:translate-x-2 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] delay-100 hover:delay-0">
+                    <a href={item.playstore} target="_blank" rel="noopener noreferrer" className="border p-1.5 shadow-xl dark:shadow-2xl duration-300 bg-fd-accent hover:bg-fd-background hover:border-black dark:hover:border-fd-primary dark:hover:shadow-fd-primary rounded-xl font-mono text-sm w-fit group-hover:rotate-6 group-hover:-translate-y-1 group-hover:translate-x-2 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] delay-100 hover:delay-0">
                       <PlayStoreIcon className="w-8 h-8 fill-current" />
                     </a>
                   )}

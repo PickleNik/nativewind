@@ -1,6 +1,99 @@
-import { CircleUser, MessageCircleMore } from "lucide-react";
+"use client"
+import { ChartSpline, CircleUser, MessageCircleMore } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 export default function HeroSectionVisual() {
+
+  const title = useRef<HTMLHeadingElement>(null);
+  const Application = useRef<HTMLSpanElement>(null);
+  const featureTitle1 = useRef<HTMLHeadingElement>(null);
+  const featureTitle2 = useRef<HTMLHeadingElement>(null);
+  const featureTitle3 = useRef<HTMLHeadingElement>(null);
+  const icon1 = useRef<SVGSVGElement>(null);
+  const icon2 = useRef<SVGSVGElement>(null);
+  const icon3 = useRef<SVGSVGElement>(null);
+
+  const [titleStyles, setTitleStyles] = useState<React.ReactNode[]>([]);
+  const [applicationStyles, setApplicationStyles] = useState<React.ReactNode[]>([]);
+  const [iconStyles, setIconStyles] = useState<React.ReactNode[]>([]);
+  const [featureTitleStyles, setFeatureTitleStyles] = useState<React.ReactNode[]>([]);
+  
+  const transitions = [
+    {
+      name: "titleSize",
+      styles: ["text-4xl", "font-black"],
+      // todo: "font-black", "text-center", "ios:text-left", "ios:font-black"
+      setStyles: setTitleStyles,
+      refs: [title],
+    },
+    {
+      name: "application",
+      styles: [" text-fd-primary"],
+      setStyles: setApplicationStyles,
+      refs: [Application],
+      delay: 300,
+    },
+    {
+      name: "icons",
+      styles: ["h-8", "w-8", "text-fd-primary"],
+      setStyles: setIconStyles,
+      refs: [icon1, icon2, icon3],
+      delay: 2500,
+    },
+    {
+      name: "featureTitles",
+      styles: ["text-lg", "font-bold", "-mt-1.5"],
+      setStyles: setFeatureTitleStyles,
+      refs: [featureTitle1, featureTitle2, featureTitle3],
+      delay: 4000,
+    },
+  ]
+
+  const FEATURES = [
+    {
+      title: <h2 ref={featureTitle1} className="duration-300">Profile Management</h2>,
+      description: 'Easily update and manage your personal information, settings, and preferences',
+      icon: <CircleUser ref={icon1} className="duration-300" />,
+    },
+    {
+      title: <h2 ref={featureTitle2} className="duration-300">Secure Messaging</h2>,
+      description: 'Chat securely with friends and family in real-time.',
+      icon:  <MessageCircleMore ref={icon2} className="duration-300" />,
+    },
+    {
+      title: <h2 ref={featureTitle3} className="duration-300">Activity Tracking</h2>,
+      description: 'Monitor your daily activities and track your progress over time.',
+      icon: <ChartSpline ref={icon3} className="duration-300" />,
+    },
+  ];
+
+  useEffect(() => {
+    transitions.forEach((transition, index) => {
+      const stylesArray = [...transition.styles.join(' ').split('')];
+      stylesArray.forEach((letter, i) => {
+        setTimeout(() => {
+          transition.setStyles((prev) => [...prev, <span key={`${transition.name}-${i}`} className="text-fd-primary animate-fade-to-gray">{letter}</span>]);
+        },
+          i * 100
+          + (transitions[index - 1] ? transitions[index - 1].styles.join(' ').length * 100 : 0)
+          + (transition.delay ? transition.delay : 0)
+        );
+      });
+      transition.styles.forEach((style, i) => {
+        setTimeout(() => {
+          transition.refs.forEach((ref) => {
+            ref.current?.classList.add(style.trim());
+          })
+        },
+          (style.length) * 100
+          + (transition.styles[i - 1] ? transition.styles[i - 1].split('').length + 5 : 0) * 100
+          + (transitions[index - 1] ? transitions[index - 1].styles.join(' ').length * 100 : 0)
+          + (transition.delay ? transition.delay : 0)
+        );
+      });
+    })
+  }, []);
+
   return (
     <div className="h-full w-full max-w-screen max-h-screen sm:max-h-[min(50vh,600px)] flex-1 flex justify-center">
       <div className="flex relative w-fit justify-center max-w-screen">
@@ -26,122 +119,101 @@ export default function HeroSectionVisual() {
           import { useColorScheme } from '~/lib/useColorScheme';
           
           const ROOT_STYLE: ViewStyle = { flex: 1 }; */}
-          <pre className="font-mono w-full max-w-[calc(100vw-1rem)] min-h-96 relative text-start max-h-full p-4 overflow-hidden text-xs bg-fd-background/40 text-fd-foreground/50 backdrop-blur rounded-xl border [mask-image:linear-gradient(to_bottom,red_calc(100%-15rem),transparent)] sm:[mask-image:none]">{`...
-  export default function WelcomeConsentScreen() {
-    const { colors } = useColorScheme();
-    return (
-      <SafeAreaView style={ROOT_STYLE}>
-        <View className="mx-auto max-w-sm flex-1 justify-between gap-4 px-8 py-4 ">
-          <View className="ios:pt-8 pt-12">
-            <Text variant="largeTitle" className="ios:text-left ios:font-black text-center font-bold">
-              Welcome to your
-            </Text>
-            <Text
-              variant="largeTitle"
-              className="ios:text-left ios:font-black text-primary text-center font-bold">
-              Application
-            </Text>
-          </View>
-          <View className="gap-8">
-            {FEATURES.map((feature) => (
-              <View key={feature.title} className="flex-row gap-4">
-                <View className="pt-px">
-                  <Icon
-                    name={feature.icon}
-                    size={38}
-                    color={colors.primary}
-                    ios={{ renderingMode: 'hierarchical' }}
-                  />
-                </View>
-                <View className="flex-1">
-                  <Text className="font-bold">{feature.title}</Text>
-                  <Text variant="footnote">{feature.description}</Text>
-                </View>
-              </View>
-            ))}
-          </View>
-          <View className="gap-4">
-            <View className="items-center">
-              <Icon
-                name="account-multiple"
-                size={24}
-                color={colors.primary}
-                ios={{ renderingMode: 'hierarchical' }}
-              />
-              <Text variant="caption2" className="pt-1 text-center">
-                By pressing continue, you agree to our{' '}
-                <Link href="/">
-                  <Text variant="caption2" className="text-primary">
-                    Terms of Service
-                  </Text>
-                </Link>{' '}
-                and that you have read our{' '}
-                <Link href="/">
-                  <Text variant="caption2" className="text-primary">
-                    Privacy Policy
-                  </Text>
-                </Link>
-              </Text>
-            </View>
-            <Link href="../" replace asChild>
-              <Button size={Platform.select({ ios: 'lg', default: 'md' })}>
-                <Text>Continue</Text>
-              </Button>
-            </Link>
-          </View>
-        </View>
-      </SafeAreaView>
-    );
-  }
+          <pre className="font-mono w-full max-w-[calc(100vw-1rem)] min-h-96 relative text-start max-h-full p-4 overflow-hidden text-xs bg-fd-background/40 text-fd-foreground/50 backdrop-blur rounded-xl border [mask-image:linear-gradient(to_bottom,red_calc(100%-15rem),transparent)] sm:[mask-image:none]">
+{`export default function WelcomeConsentScreen() {
 
-  const FEATURES = [
-    {
-      title: 'Profile Management',
-      description: 'Easily update and manage your personal information, settings, and preferences',
-      icon: 'account-circle-outline',
-    },
-    {
-      title: 'Secure Messaging',
-      description: 'Chat securely with friends and family in real-time.',
-      icon: 'message-processing',
-    },
-    {
-      title: 'Activity Tracking',
-      description: 'Monitor your daily activities and track your progress over time.',
-      icon: 'chart-timeline-variant',
-    },
-  ] as const;
+  return (
+    <SafeAreaView style={ROOT_STYLE}>
+      <View className="mx-auto max-w-sm flex-1 justify-between gap-4 px-8 py-4 ">
+        <View className="ios:pt-8 pt-12">
+`}
+          <div className="whitespace-pre">
+            {`            <Text className="`}
+            {(titleStyles)}
+            {`">`}
+          </div>
+{`              Welcome to your
+          </Text>
+`}
+          <div className="whitespace-pre">
+            {`           <Text className="`}
+            {(titleStyles)}
+            {(applicationStyles)}{`">`}
+          </div>
+          {`              Application
+          </Text>
+        </View>
+        <View className="gap-8">
+          {FEATURES.map((feature) => (
+            <View key={feature.title} className="flex-row gap-4">
+              <View className="pt-px">
+                <Icon
+                  name={feature.icon}
+`}
+          <div className="whitespace-pre">
+            {`                    className="`}
+            {(iconStyles)}
+            {`"`}
+          </div>
+{`                    ios={{ renderingMode: 'hierarchical' }}
+                />
+              </View>
+              <View className="flex-1">
+`}
+          <div className="whitespace-pre">
+            {`                  <Text className="`}
+            {(featureTitleStyles)}
+            {`">{feature.title}</Text>`}
+          </div>
+{`                  <Text variant="footnote">{feature.description}</Text>
+              </View>
+            </View>
+          ))}
+        </View>
+      </View>
+    </SafeAreaView>
+  );
+}
+
+const FEATURES = [
+  {
+    title: 'Profile Management',
+    description: 'Easily update and manage your personal information, settings, and preferences',
+    icon: 'account-circle-outline',
+  },
+  {
+    title: 'Secure Messaging',
+    description: 'Chat securely with friends and family in real-time.',
+    icon: 'message-processing',
+  },
+  {
+    title: 'Activity Tracking',
+    description: 'Monitor your daily activities and track your progress over time.',
+    icon: 'chart-timeline-variant',
+  },
+] as const;
   `}
         </pre>
         <div className="h-full relative min-h-96 overflow-clip sm:absolute sm:-right-20 sm:translate-y-1/2 lg:translate-y-0 md:right-0 w-96 min-w-96 rounded-t-[3rem] mx-4 mt-4 -mb-4 border-2 border-black lg:relative bg-gradient-to-b from-fd-accent/20 backdrop-blur to-white dark:to-fd-card p-8 pt-24 text-start -translate-y-1/3">
           <div className="w-24 h-8 rounded-full bg-black absolute top-4 left-1/2 -translate-x-1/2" />
-            <h1 className="text-4xl font-black mb-20">
+            <h1 ref={title} className="duration-500 mb-20">
               Welcome to your<br/>
-              <span className="text-fd-primary">Application</span>
+              <span ref={Application} className="duration-300 transition-colors">Application</span>
             </h1>
             <div className="flex flex-col gap-8 h-full">
-              <div className="flex gap-4">
-                <div className="w-10">
-                  <CircleUser size={32} className="text-fd-primary" />
+              {FEATURES.map((feature, i) => (
+                <div key={i} className="flex gap-4">
+                  <div className="w-10">
+                    {feature.icon}
+                  </div>
+                  <div className="flex w-full flex-col">
+                    {feature.title}
+                    <p className="text-sm text-fd-muted-foreground">
+                      {feature.description}
+                    </p>
+                  </div>
                 </div>
-                <div className="flex w-full flex-col">
-                  <h2 className="text-lg font-bold -mt-1.5">Profile Management</h2>
-                  <p className="text-sm text-fd-muted-foreground">
-                    Easily update and manage your personal information, settings, and preferences
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="w-10">
-                  <MessageCircleMore size={32} className="text-fd-primary" />
-                </div>
-                <div className="flex w-full flex-col">
-                  <h2 className="text-lg font-bold -mt-1.5">Secure Messaging</h2>
-                  <p className="text-sm text-fd-muted-foreground">
-                    Chat securely with friends and family in real-time.
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
