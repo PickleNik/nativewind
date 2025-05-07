@@ -84,12 +84,12 @@ export default function Layout({ children }: { children: ReactNode }) {
           },
         ],
       },
-      {
-        icon: <BookText />,
-        text: 'Blog',
-        url: '/blog',
-        active: 'nested-url',
-      },
+      // {
+      //   icon: <BookText />,
+      //   text: 'Blog',
+      //   url: '/blog',
+      //   active: 'nested-url',
+      // },
       // {
       //   text: 'Community',
       //   // TODO: GH Discussions / Discord Link?
@@ -99,15 +99,15 @@ export default function Layout({ children }: { children: ReactNode }) {
       // },
       {
         text: 'Showcase',
-        url: '/showcase',
+        url: '/#showcase',
         icon: <LayoutTemplate />,
         active: 'url',
       },
-      {
-        text: 'Sponsors',
-        url: '/sponsors',
-        icon: <Heart />,
-      },
+      // {
+      //   text: 'Sponsors',
+      //   url: '/sponsors',
+      //   icon: <Heart />,
+      // },
     ]}
   >
     { children }
