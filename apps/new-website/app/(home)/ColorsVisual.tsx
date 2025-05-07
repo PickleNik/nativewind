@@ -16,11 +16,11 @@ const colors = [
   { name: 'sky', shades: ['bg-sky-50', 'bg-sky-100', 'bg-sky-200', 'bg-sky-300', 'bg-sky-400', 'bg-sky-500', 'bg-sky-600', 'bg-sky-700', 'bg-sky-800', 'bg-sky-900', 'bg-sky-950'] },
   { name: 'blue', shades: ['bg-blue-50', 'bg-blue-100', 'bg-blue-200', 'bg-blue-300', 'bg-blue-400', 'bg-blue-500', 'bg-blue-600', 'bg-blue-700', 'bg-blue-800', 'bg-blue-900'] },
   { name: 'indigo', shades: ['bg-indigo-50',' bg-indigo-100',' bg-indigo-200',' bg-indigo-300',' bg-indigo-400',' bg-indigo-500',' bg-indigo-600',' bg-indigo-700',' bg-indigo-800',' bg-indigo-900'] },
-  { name: "violet", shades: ["bg-violet-50", " bg-violet-100", " bg-violet-200", " bg-violet-300", " bg-violet-400", " bg-violet-500", " bg-violet-600", " bg-violet-700", " bg-violet-800", " bg-violet-900"] },
-  { name: "purple", shades: ["bg-purple-50", " bg-purple-100", " bg-purple-200", " bg-purple-300", " bg-purple-400", " bg-purple-500", " bg-purple-600", " bg-purple-700", " bg-purple-800", " bg-purple-900"] },
-  { name: "fuchsia", shades: ["bg-fuchsia-50", " bg-fuchsia-100", " bg-fuchsia-200", " bg-fuchsia-300", " bg-fuchsia-400", " bg-fuchsia-500", " bg-fuchsia-600", " bg-fuchsia-700", " bg-fuchsia-800", " bg-fuchsia-900"] },
-  { name: "pink", shades: ["bg-pink-50", " bg-pink-100", " bg-pink-200", " bg-pink-300", " bg-pink-400", " bg-pink-500", " bg-pink-600", " bg-pink-700", " bg-pink-800", " bg-pink-900"] },
-  { name: "rose", shades: ["bg-rose-50", " bg-rose-100", " bg-rose-200", " bg-rose-300", " bg-rose-400", " bg-rose-500", " bg-rose-600", " bg-rose-700", " bg-rose-800", " bg-rose-900"] },
+  { name: "violet", shades: ["bg-violet-50", "bg-violet-100", "bg-violet-200", "bg-violet-300", "bg-violet-400", "bg-violet-500", "bg-violet-600", "bg-violet-700", "bg-violet-800", "bg-violet-900"] },
+  { name: "purple", shades: ["bg-purple-50", "bg-purple-100", "bg-purple-200", "bg-purple-300", "bg-purple-400", "bg-purple-500", "bg-purple-600", "bg-purple-700", "bg-purple-800", "bg-purple-900"] },
+  { name: "fuchsia", shades: ["bg-fuchsia-50", "bg-fuchsia-100", "bg-fuchsia-200", "bg-fuchsia-300", "bg-fuchsia-400", "bg-fuchsia-500", "bg-fuchsia-600", "bg-fuchsia-700", "bg-fuchsia-800", "bg-fuchsia-900"] },
+  { name: "pink", shades: ["bg-pink-50", "bg-pink-100", "bg-pink-200", "bg-pink-300", "bg-pink-400", "bg-pink-500", "bg-pink-600", "bg-pink-700", "bg-pink-800", "bg-pink-900"] },
+  { name: "rose", shades: ["bg-rose-50", "bg-rose-100", "bg-rose-200", "bg-rose-300", "bg-rose-400", "bg-rose-500", "bg-rose-600", "bg-rose-700", "bg-rose-800", "bg-rose-900"] },
 ]
 
 const shades = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900', '950']
@@ -28,9 +28,24 @@ const shades = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '9
 export default function ColorsVisual() {
   const [copied, setCopied] = useState(false);
   const [copiedShade, setCopiedShade] = useState('');
+  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
+
+
+  const handleCopyColor = (color: string) => (e: { stopPropagation: () => void; preventDefault: () => void; }) => {
+    e.stopPropagation()
+    e.preventDefault()
+    navigator.clipboard.writeText(color)
+    setCopiedShade(color)
+    setCopied(true)
+    if (timeoutId) clearTimeout(timeoutId)
+    const newTimeoutId = setTimeout(() => {
+      setCopied(false)
+    }, 1500)
+    setTimeoutId(newTimeoutId)
+  }
 
   return (
-    <div id="container" className="w-full h-full sm:overflow-scroll hide-scrollbar"
+    <div id="container"className="w-full h-full sm:overflow-scroll hide-scrollbar"
       onMouseMove={(e) => {
         if (window.innerWidth < 768) return;
         const { clientX, clientY, currentTarget } = e;
@@ -62,10 +77,12 @@ export default function ColorsVisual() {
       <div className={`absolute flex items-center z-30 bottom-0 left-1/2 -translate-x-1/2 py-1.5 px-3 rounded-full bg-fd-background/80 backdrop-blur border $${copied ? 'opacity-100 -translate-y-4' : 'opacity-0 translate-y-full'} transition-all duration-300 shadow-xl text-nowrap`}>
         <ClipboardCheck className={`w-4 h-4 mr-1 text-fd-foreground ${copied ? 'animate-bounce' : ''}`} />
         Copied 
-        <div className="rounded-md text-xs mx-1 py-0.5 px-1.5 font-mono whitespace-nowrap" style={{
+        <div className="rounded-md text-xs mx-1 py-0.5 px-1.5 font-mono whitespace-nowrap"style={{
           color: `var(${copiedShade.replace('bg-', '--color-')})`,
           backgroundColor: Number(copiedShade.split('-')[2]) > 500 ? `var(${copiedShade.replace('bg-', '--color-').replace(/-\d{2,3}$/, '-200')})` : `var(${copiedShade.replace('bg-', '--color-').replace(/-\d{2,3}$/, '-800')})`,
-        } as React.CSSProperties}>{copiedShade.replace('bg-','--color-')}</div> <span className="hidden sm:inline">to clipboard</span>
+        }}>
+          {copiedShade}
+        </div> <span className="hidden sm:inline">to clipboard</span>
       </div>
       <div className="grid grid-cols-18 grid-rows-11 w-[42rem] h-[28.25rem] mt-12 p-4 opacity-80 md:opacity-100 md:grayscale-100 group-hover:opacity-100 group-hover:grayscale-0 duration-300 transition-all">
         {/* cell 0 0 */}
@@ -86,19 +103,7 @@ export default function ColorsVisual() {
             </div>
             {/* rest of colns and rows */}
             {colors.map((color) => (
-              <div className="w-full h-full p-0.5 group/color active:scale-90 duration-75" key={color.name} onClick={(e) => {
-                let timeout;
-                e.stopPropagation()
-                e.preventDefault()
-                console.log(color.shades[index])
-                navigator.clipboard.writeText(color.shades[index])
-                setCopiedShade(color.shades[index])
-                setCopied(true)
-                clearTimeout(timeout)
-                timeout = setTimeout(() => {
-                  setCopied(false)
-                }, 1500)
-              }}>
+              <div className="w-full h-full p-0.5 group/color active:scale-90 duration-75"key={color.name} onClick={handleCopyColor(color.shades[index])}>
                 <div className={`w-full h-full ${color.shades[index]} rounded-lg border border-dashed md:opacity-20 group-hover:opacity-50 group-hover/color:opacity-90 group-hover/color:rounded-2xl duration-500 group-hover/color:duration-0 group-active/color:opacity-100 group-active/color:duration-75`} />
               </div>
             ))}
