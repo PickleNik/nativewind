@@ -22,7 +22,14 @@ export default function VectorField() {
         canvas.height = height;
 
 
-        // window.addEventListener('resize', resize);
+        window.addEventListener('resize', resize);
+        function resize() {
+          if(!canvas) return; 
+          width = window.innerWidth;
+          height = window.innerHeight;
+          canvas.width = width;
+          canvas.height = height;
+        }
 
         window.addEventListener('mousemove', (e) => {
           if (mouse && mouse.current && canvasRef.current) {
