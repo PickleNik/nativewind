@@ -5,7 +5,7 @@ export default function ComponentKitsSection() {
   return (
     <>
       <h1 id="component-kits" className="text-3xl font-bold pb-8 border-t border-dashed backdrop-blur w-full dark:opacity-90 -mt-[1px] pt-9 relative">
-        <div className="w-fd-container mx-auto max-md:px-4 text-left relative">
+        <div className="w-full max-w-fd-container mx-auto max-md:px-4 text-left relative">
           UI Component Kits
         </div>
       </h1>

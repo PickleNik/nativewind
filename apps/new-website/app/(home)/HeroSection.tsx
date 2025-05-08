@@ -30,12 +30,12 @@ export default function HeroSection() {
         
       <SectionLink className="z-30 hidden sm:block !relative -translate-y-6" href="#" name="what is nativewind?" />
       <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium dark:opacity-90 bg-gradient-to-br from-black/50 to-cyan-800/90 bg-clip-text text-transparent dark:from-white/80 dark:from-50% border-y border-dashed bg-fd-background backdrop-blur tracking-tight leading-tight">
-        <div className="w-fd-container text-start mx-auto max-lg:px-4 text-pretty max-w-full">
+        <div className="max-w-fd-container text-start mx-auto max-lg:px-4 text-balance w-full">
           NativeWind lets you use TailwindCSS to style your React Native apps.
         </div>
       </h1>
       <div className="flex justify-center border-y border-dashed relative backdrop-blur dark:opacity-90"> 
-        <div className="w-fd-container mx-auto">
+        <div className="w-full max-w-fd-container mx-auto">
           <p className="text-fd-muted-foreground text-pretty max-w-[40ch] max-lg:px-4 text-start">
             Do you like using Tailwind CSS to style your apps? This helps you do that in <a href="https://reactnative.dev/" className="font-bold underline decoration-fd-primary text-fd-accent-foreground underline-offset-2 duration-200 hover:underline-offset-4">React Native</a>.
           </p>
@@ -43,7 +43,7 @@ export default function HeroSection() {
       </div>
 
         <div className="border-y border-dashed box-content backdrop-blur dark:opacity-90">
-          <div className="w-fd-container mx-auto flex gap-4 max-lg:px-4">
+          <div className="w-full max-w-fd-container mx-auto flex gap-4 max-lg:px-4">
             <LargeSearchToggle
               className="w-full max-w-[200px] sm:max-w-[240px] -my-[1px]"
               onHeroSection

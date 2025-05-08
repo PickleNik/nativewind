@@ -23,17 +23,17 @@ const colorVariants = {
 }
 
 const textVariants = {
-  pink: 'group-hover:text-pink-500 dark:group-hover:text-pink-400',
-  cyan: 'group-hover:text-cyan-500 dark:group-hover:text-cyan-400',
-  orange: 'group-hover:text-orange-500 dark:group-hover:text-orange-400',
-  purple: 'group-hover:text-indigo-500 dark:group-hover:text-indigo-400',
+  pink: 'group-hover:text-pink-500 dark:group-hover:text-pink-400 max-md:text-pink-500 dark:max-md:text-pink-400',
+  cyan: 'group-hover:text-cyan-500 dark:group-hover:text-cyan-400 max-md:text-cyan-500 dark:max-md:text-cyan-400',
+  orange: 'group-hover:text-orange-500 dark:group-hover:text-orange-400 max-md:text-orange-500 dark:max-md:text-orange-400',
+  purple: 'group-hover:text-indigo-500 dark:group-hover:text-indigo-400 max-md:text-indigo-500 dark:max-md:text-indigo-400',
 }
 
 const borderVariants = {
-  pink: 'group-hover:border-pink-500/40 dark:group-hover:border-pink-400/40',
-  cyan: 'group-hover:border-cyan-500/40 dark:group-hover:border-cyan-400/40',
-  orange: 'group-hover:border-orange-500/40 dark:group-hover:border-orange-400/40',
-  purple: 'group-hover:border-indigo-500/40 dark:group-hover:border-indigo-400/40',
+  pink: 'group-hover:border-pink-500/40 dark:group-hover:border-pink-400/40 max-md:border-pink-500/40 dark:max-md:border-pink-400/40',
+  cyan: 'group-hover:border-cyan-500/40 dark:group-hover:border-cyan-400/40 max-md:border-cyan-500/40 dark:max-md:border-cyan-400/40',
+  orange: 'group-hover:border-orange-500/40 dark:group-hover:border-orange-400/40 max-md:border-orange-500/40 dark:max-md:border-orange-400/40',
+  purple: 'group-hover:border-indigo-500/40 dark:group-hover:border-indigo-400/40 max-md:border-indigo-500/40 dark:max-md:border-indigo-400/40',
 }
 
 export default function WhyNativewindCard({
