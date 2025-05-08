@@ -108,7 +108,7 @@ export default function HeroSectionVisual() {
   }, []);
 
   return (
-    <div className="h-full w-full max-w-screen max-h-screen sm:max-h-[min(50vh,600px)] flex-1 flex justify-center">
+    <div className="h-full w-full max-w-screen max-h-screen sm:max-h-[min(50vh,600px)] flex-1 flex justify-center border-t border-dashed">
       <div className="flex relative w-fit justify-center max-w-[calc(var(--spacing-fd-container)+0rem)]">
         {/* <div className="border p-1 rounded-full flex gap-1 absolute -top-4 -translate-y-full right-0 bg-fd-card">
           <div className="border p-1 rounded-full bg-fd-accent">
@@ -119,7 +119,7 @@ export default function HeroSectionVisual() {
           </div>
         </div> */}
         <div className="z-10 pointer-events-none absolute w-full h-full inset-0 bg-gradient-to-b from-fd-background/0 to-fd-background from-[calc(100%-15rem)]"/>
-        <div className="flex lg:flex-row flex-col items-center sm:items-end relative overflow-hidden bg-fd-background/20 p-2 rounded-2xl border min-w-fd-container">
+        <div className="flex lg:flex-row flex-col items-center relative overflow-hidden bg-fd-background/20 p-2 pb-0 min-w-fd-container">
           <div className="absolute top-0 right-0 -z-10 translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-fd-primary/20 blur-3xl max-md:hidden" />
           <div className="absolute top-0 right-0 -z-10 h-full w-[32rem] bg-grid-lines-lg -skew-20 -translate-y-1/2 translate-x-1/2 max-md:hidden"/>
           {/* import { Icon } from '@roninoss/icons';
@@ -133,13 +133,13 @@ export default function HeroSectionVisual() {
           
           const ROOT_STYLE: ViewStyle = { flex: 1 }; */}
           <pre className="font-mono sm:mb-0 w-full max-w-[calc(100vw-1rem)] min-h-96 relative text-start max-h-full p-4 lg:px-11 lg:py-4 overflow-hidden text-xs bg-fd-background/40 text-fd-foreground/50 backdrop-blur rounded-xl border [mask-image:linear-gradient(to_bottom,red_calc(100%-15rem),transparent)] sm:[mask-image:none]">
-            <div className="absolute h-full border-r border-dashed left-8 top-0"/>
-              {/* line numbers */}
-              <div className="absolute left-1.5 top-4 h-full flex flex-col gap-[0.25px] text-right">
-                {Array.from({ length: 40 }, (_, i) => (
-                  <div key={i} className={`${[7, 10, 20, 25].includes(i+1) ? 'text-fd-primary' : 'text-fd-muted-foreground'} text-xs`}>{i + 1}</div>
-                ))}
-              </div>
+            <div className="absolute h-full border-r border-dashed left-8 top-0 max-lg:hidden"/>
+            {/* line numbers */}
+            <div className="absolute left-1.5 top-4 h-full flex flex-col gap-[0.25px] text-right max-lg:hidden">
+              {Array.from({ length: 40 }, (_, i) => (
+                <div key={i} className={`${[7, 10, 20, 25].includes(i+1) ? 'text-fd-primary' : 'text-fd-muted-foreground'} text-xs`}>{i + 1}</div>
+              ))}
+            </div>
 
 {`export default function WelcomeConsentScreen() {
 
@@ -217,7 +217,7 @@ const FEATURES = [
   `}
         </pre>
         {/* <div className="absolute h-full border-r border-dashed right-[42px] top-0"/> */}
-        <div className="h-full relative min-h-96 overflow-clip sm:absolute sm:-right-20 sm:mt-4 sm:translate-y-1/2 lg:translate-y-0 md:right-0 w-96 min-w-96 rounded-t-[3rem] mx-4 -mb-4 border-2 border-black lg:relative bg-gradient-to-b from-fd-accent/20 backdrop-blur to-white dark:to-fd-card p-8 pt-24 text-start">
+        <div className="h-full relative min-h-96 overflow-clip sm:absolute sm:-right-20 sm:mt-2 -mt-32 sm:translate-y-1/4 sm:-translate-x-1/3 lg:translate-x-0 lg:translate-y-0 md:right-0 w-96 min-w-96 rounded-t-[4rem] lg:ml-2 border-8 border-black lg:relative bg-gradient-to-b from-fd-accent/20 backdrop-blur to-white dark:to-fd-card p-7 pt-24 text-start !border-b-0">
             
           <div className="w-24 h-8 rounded-full bg-black absolute top-4 left-1/2 -translate-x-1/2" />
             <h1 ref={title} className="duration-500 mb-20">

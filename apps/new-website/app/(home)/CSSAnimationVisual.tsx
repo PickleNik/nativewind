@@ -1,6 +1,6 @@
 export default function CSSAnimationVisual() {
   return (
-    <div className="flex flex-col justify-center p-4 gap-4 w-full h-full">
+    <div className="flex flex-col justify-center p-4 pt-8 gap-4 w-full h-full">
       <div className="gap-2">
         <span className="font-mono ml-2">linear</span>
         <div className="border bg-blue-500/2 rounded-xl @container p-2 relative flex justify-between">

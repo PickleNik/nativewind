@@ -34,13 +34,14 @@ export function Navbar(props: HTMLAttributes<HTMLElement>) {
         id="nd-nav"
         {...props}
         className={cn(
-          'fixed left-1/2 top-(--fd-banner-height) bg-fd-background/40 backdrop-blur-lg z-40 box-content w-full max-w-fd-container -translate-x-1/2 border-b border-fd-foreground/10 transition-colors lg:w-[calc(100%-1rem)] lg:border-x',
+          'fixed left-1/2 top-(--fd-banner-height) z-40 backdrop-blur-xs bg-fd-background/40 box-content w-full max-w-fd-container -translate-x-1/2 border-b border-fd-foreground/10 transition-colors lg:w-[calc(100%-1rem)] lg:border-x',
           value.length > 0 ? '' : '',
           (!isTransparent || value.length > 0) &&
             'bg-fd-background/80 backdrop-blur-lg',
           props.className,
         )}
       >
+        <div className="absolute inset-0 -z-10 w-full h-full cursed bg-fd-background/40 backdrop-blur-xs" />
         <svg className="absolute -left-[6.5px] -top-[5.5px] z-[1]" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" vectorEffect="non-scaling-stroke"><path d="M6 0V12M0 6H12" stroke="currentColor"></path></svg>
         <svg className="absolute -left-[6.5px] -bottom-[5.5px] z-[1]" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" vectorEffect="non-scaling-stroke"><path d="M6 0V12M0 6H12" stroke="currentColor"></path></svg>
         <svg className="absolute -right-[6.5px] -top-[5.5px] z-[1]" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" vectorEffect="non-scaling-stroke"><path d="M6 0V12M0 6H12" stroke="currentColor"></path></svg>
