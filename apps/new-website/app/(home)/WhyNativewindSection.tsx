@@ -8,9 +8,9 @@ import WhyNativewindCard from "./WhyNativeWindCard";
 export default function WhyNativewindSection() {
   return (
     <>
-      <h1 id="why-nativewind" className="text-3xl font-bold py-8 border-y border-dashed backdrop-blur w-full dark:opacity-90">Why NativeWind?</h1>
+      <h1 id="why-nativewind" className="text-3xl font-bold py-8 border-t border-dashed backdrop-blur w-full dark:opacity-90"><div className="w-fd-container max-md:px-4 mx-auto text-left">Why NativeWind?</div></h1>
       <section className="relative flex flex-col w-full max-w-fd-container mx-auto -mt-[1px] border-y border-dashed">      
-        <SectionLink className="z-30" href="#why-nativewind" name="why nativewind?" />
+        {/* <SectionLink className="z-30" href="#why-nativewind" name="why nativewind?" /> */}
 
         <div className="flex-1 flex max-sm:flex-col w-full border-t border-dashed">
           <WhyNativewindCard href="/docs/core-concepts/dark-mode" title="Dark/Light mode" number="00" color="cyan" visual={<DarkModeVisual/>} />

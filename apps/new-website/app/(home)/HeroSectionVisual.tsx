@@ -17,6 +17,8 @@ export default function HeroSectionVisual() {
   const [applicationStyles, setApplicationStyles] = useState<React.ReactNode[]>([]);
   const [iconStyles, setIconStyles] = useState<React.ReactNode[]>([]);
   const [featureTitleStyles, setFeatureTitleStyles] = useState<React.ReactNode[]>([]);
+
+  const [animating, setAnimating] = useState(false);
   
   const transitions = [
     {
@@ -68,6 +70,8 @@ export default function HeroSectionVisual() {
   ];
 
   useEffect(() => {
+    if (animating) return;
+    setAnimating(true);
     transitions.forEach((transition, index) => {
       const stylesArray = [...transition.styles.join(' ').split('')];
       stylesArray.forEach((letter, i) => {
@@ -92,6 +96,15 @@ export default function HeroSectionVisual() {
         );
       });
     })
+    return () => {
+      transitions.forEach((transition) => {
+        transition.refs.forEach((ref) => {
+          ref.current?.classList.remove(...transition.styles);
+        })
+        transition.setStyles([]);
+      })
+      setAnimating(false);
+    }
   }, []);
 
   return (
